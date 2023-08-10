@@ -1,4 +1,3 @@
-
 // 내부에 분리된 컴포넌트 호출
 // 학습 주제별 컴포넌트
 import ConditionalDisplay from './parts/ConditionalDisplay';
@@ -36,14 +35,12 @@ function DefinitionList() {
 
   return (
     <dl className="descriptionList">
-        
-        <DisplayingData statusMessage={statusMessage} />
-        <ConditionalRendering imageType={imageType} />
-        <ConditionalDisplay />
-        <RenderingLists renderList={renderList} />
-        
-      </dl>
-  )
+      <DisplayingData statusMessage={statusMessage} />
+      <ConditionalRendering imageType={imageType} />
+      <ConditionalDisplay />
+      <RenderingLists renderList={renderList} />
+    </dl>
+  );
 }
 
 export default DefinitionList;

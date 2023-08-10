@@ -16,7 +16,7 @@ import viteImagePath from '@/assets/vite.svg';
 // - isLoading (로딩 중)
 // - isSuccess (데이터 요청/응답 성공 수신)
 // - isError (데이터 요청 실패)
-const status = 'isLoading';
+const status = 'isSuccess';
 
 /* 컴포넌트 --------------------------------------------------------------------- */
 
@@ -33,6 +33,7 @@ function ConditionalRendering({ imageType }) {
 
   // 2-2. 조건 식 (함수 몸체 또는 JSX 내부 사용)
 
+  // if 또는 switch 문 사용
   switch(status) {
     case 'isPending': return <p>대기 중입니다.</p>
     case 'isLoading': return <p>로딩 중입니다.</p>
@@ -54,7 +55,7 @@ function ConditionalRendering({ imageType }) {
   const isReactImage = imageType === 'react';
   const imageLabel = isReactImage ? 'React' : 'Vite';
 
-  const isShowImage = false;
+  const isShowImage = true;
   const isntShowImageLabel = false;
 
   return (
@@ -99,22 +100,12 @@ function ConditionalRendering({ imageType }) {
       <dd style={{ marginTop: 12 }}>
         <p>spinner 또는 vite 이미지가 랜덤으로 화면에 렌더링 되도록 합니다.</p>
         <div className="conditionalRendering">
-          {
-           renderRandomImageOrSpinner() 
-          }
+          <img className="spinner" src="/spinner.svg" alt="로딩 중..." />
+          <img src="/vite.svg" alt="Vite" style={{ height: 42 }} />
         </div>
       </dd>
     </>
   );
 }
 
-
-function renderRandomImageOrSpinner() {
-  return Math.random() >= 0.5 ? (
-    <img className="spinner" src="/spinner.svg" alt="로딩 중..." />
-    ) : (
-      <img src="/vite.svg" alt="Vite" style={{ height: 42 }} />
-      )
-    }
-    
 export default ConditionalRendering;
