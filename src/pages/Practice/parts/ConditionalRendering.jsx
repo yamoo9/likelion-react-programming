@@ -99,12 +99,22 @@ function ConditionalRendering({ imageType }) {
       <dd style={{ marginTop: 12 }}>
         <p>spinner 또는 vite 이미지가 랜덤으로 화면에 렌더링 되도록 합니다.</p>
         <div className="conditionalRendering">
-          <img className="spinner" src="/spinner.svg" alt="로딩 중..." />
-          <img src="/vite.svg" alt="Vite" style={{ height: 42 }} />
+          {
+           renderRandomImageOrSpinner() 
+          }
         </div>
       </dd>
     </>
   );
 }
 
+
+function renderRandomImageOrSpinner() {
+  return Math.random() >= 0.5 ? (
+    <img className="spinner" src="/spinner.svg" alt="로딩 중..." />
+    ) : (
+      <img src="/vite.svg" alt="Vite" style={{ height: 42 }} />
+      )
+    }
+    
 export default ConditionalRendering;
