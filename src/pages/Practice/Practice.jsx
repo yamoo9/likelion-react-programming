@@ -66,6 +66,8 @@ function Practice() {
           <p>이미지 타입(image type)에 따라 렌더링 여부를 결정합니다.</p>
           <div className="conditionalRendering">
             {/* imageType 값이 'vite'인 경우 Vite 이미지를, 'react'인 경우 React 이미지를 화면에 표시합니다. */}
+            <img src="../../assets/react.svg" alt="리액트" />
+
             {/* imageType이 'vite'인 경우 'Vite', 'react'인 경우 'React' 텍스트를 화면에 표시합니다. */}
           </div>
         </dd>
