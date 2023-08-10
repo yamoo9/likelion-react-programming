@@ -1,6 +1,5 @@
 // 스타일 및 에셋 연결
-import '../styles/Practice.css';
-import '../styles/a/b/c/d/e/f/g/z.css';
+import './Practice.css';
 
 let imageType = 'react'; // any type
 

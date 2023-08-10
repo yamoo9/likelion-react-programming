@@ -1,5 +1,5 @@
 import RootLayout from './layout/RootLayout';
-import Practice from './pages/Practice';
+import Practice from './pages/Practice/Practice';
 
 function App() {
   return (
