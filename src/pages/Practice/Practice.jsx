@@ -2,6 +2,10 @@
 import './Practice.css';
 import { getRandom } from '@/utils/getRandomMinMax';
 
+//에셋 이미지 호출
+import
+import
+
 /* 데이터 ---------------------------------------------------------------------- */
 
 let imageType = 'react'; // 'react' | 'vite'
@@ -29,6 +33,16 @@ function Practice() {
   const renderList = () => {
     return null;
   };
+
+  // 2-1. 조건 문
+  // let imageComponent;
+  // if (imageType === 'vite'){
+  //   imageComponent = <img src={viteImagePath} alt="비트"/>;
+  // }else{
+  //   imageComponent = <img src={reactImagePath} alt="리액트"/>;
+  // }
+
+  // 2-2. 조건 식
 
   return (
     <div className="Practice">
@@ -58,7 +72,7 @@ function Practice() {
             {/* JSX 안에서는 문을 사용할 수 없다. (❌ if, for, while, switch ..) */}
             {/* {statusMessage[Math.floor(Math.random() * statusMessage.length)]} */}
             {/* 유틸리티 함수를 사용하면 클린 코드 작성 가능 */}
-            {statusMessage[getRandom(statusMessage.length)]}
+            {statusMessage[getRandom(statusMessage.length - 1)]}
           </span>
         </dd>
         <dt>조건부 렌더링(conditional rendering)</dt>
@@ -66,10 +80,12 @@ function Practice() {
           <p>이미지 타입(image type)에 따라 렌더링 여부를 결정합니다.</p>
           <div className="conditionalRendering">
             {/* imageType 값이 'vite'인 경우 Vite 이미지를, 'react'인 경우 React 이미지를 화면에 표시합니다. */}
-            <img src="../../assets/react.svg" alt="리액트" />
+            {/*조건문으로 렌더링 */}
+            {/* imageComponent*/}
 
             {/* imageType이 'vite'인 경우 'Vite', 'react'인 경우 'React' 텍스트를 화면에 표시합니다. */}
-          </div>
+          
+            </div>
         </dd>
         <dd style={{ marginTop: 12 }}>
           <p>
