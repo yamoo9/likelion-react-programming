@@ -1,10 +1,14 @@
-function RenderingLists({ renderList }) {
+function RenderingLists({ statusMessage, renderList }) {
   return (
     <>
       <dt>리스트 렌더링(list rendering)</dt>
       <dd>
         <p>상태 메시지(status message) 배열을 리스트 렌더링합니다.</p>
-        <ul className="renderList">{renderList()}</ul>
+        <ul className="renderList">
+          {statusMessage.map((message) => {
+            return <li key={message}>{message}</li>;
+          })}
+        </ul>
       </dd>
       <dd>
         <p>상태 메시지(status message) 배열을 역순 정렬하여 렌더링합니다.</p>
@@ -20,7 +24,7 @@ function RenderingLists({ renderList }) {
         </dl>
       </dd>
     </>
-  )
+  );
 }
 
-export default RenderingLists
+export default RenderingLists;
