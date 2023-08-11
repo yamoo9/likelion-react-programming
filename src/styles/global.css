@@ -46,3 +46,9 @@ abbr[title] {
   z-index: 1000;
   background: #0007;
 }
+
+.container {
+  padding: 24px;
+  background: #4744be99;
+  color: #17172d;
+}
