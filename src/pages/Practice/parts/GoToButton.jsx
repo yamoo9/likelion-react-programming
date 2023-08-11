@@ -1,24 +1,27 @@
 function GoToButton({ 
   direction/* 'down' | 'up' */, 
-  label /* string */
+  label /* string */,
+  // 나머지 전달된 속성(prop)을 모은 객체
+  // rest props
+  ...restProps
 }) {
-
-
-  let className = '';
   // 문 또는 식
-  if (direction === 'down') {
-    className = 'scrollDown';
-  } else {
-    className = 'scrollUp';
-  }
+  // let className = '';
+  // if (direction === 'down') {
+  //   className = 'scrollDown';
+  // } else {
+  //   className = 'scrollUp';
+  // }
 
   return (
     <button
       type="button"
+      // className={className}
       /* 식만 사용 가능 */
-      className={className}
+      className={direction === 'down' ? 'scrollDown' : 'scrollUp'}
       aria-label={label}
       title={label}
+      {...restProps}
     >
       <svg
         fill="currentColor"

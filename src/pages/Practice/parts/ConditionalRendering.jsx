@@ -1,5 +1,5 @@
-import reactImagePath from '@/assets/react.svg';
-import viteImagePath from '@/assets/vite.svg';
+// import reactImagePath from '@/assets/react.svg';
+// import viteImagePath from '@/assets/vite.svg';
 
 const status = 'isSuccess';
 
@@ -14,14 +14,14 @@ function ConditionalRendering({ hidden, imageType }) {
     default:
   }
 
-  const imageComponent =
-    imageType === 'vite' ? (
-      <img src={viteImagePath} alt="비트" />
-    ) : (
-      <img src={reactImagePath} alt="리액트" />
-    );
+  // const imageComponent =
+  //   imageType === 'vite' ? (
+  //     <img src={viteImagePath} alt="비트" />
+  //   ) : (
+  //     <img src={reactImagePath} alt="리액트" />
+  //   );
 
-  console.log(imageComponent);
+  // console.log(imageComponent);
 
   const isReactImage = imageType === 'react';
   const imageLabel = isReactImage ? 'React' : 'Vite';
