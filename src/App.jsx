@@ -1,9 +1,61 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./layout/RootLayout";
+import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom';
+import RootLayout from './layout/RootLayout';
 
-const Home = () => <div>Home</div>;
-const Products = () => <div>Products</div>;
-const Contact = () => <div>Contact</div>;
+const Nav = () => (
+  <nav>
+    <ul>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? 'font-black text-rose-600' : ''
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/products"
+          className={({ isActive }) =>
+            isActive ? 'font-black text-rose-600' : ''
+          }
+        >
+          Products
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? 'font-black text-rose-600' : ''
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
+);
+
+const Home = () => (
+  <div>
+    <Nav />
+    <h1 className="text-black text-emerald-500">Home</h1>
+  </div>
+);
+const Products = () => (
+  <div>
+    <Nav />
+    <h1 className="text-black text-emerald-500">Products</h1>
+  </div>
+);
+const Contact = () => (
+  <div>
+    <Nav />
+    <h1 className="text-black text-emerald-500">Contact</h1>
+  </div>
+);
 
 const router = createBrowserRouter([
   // Router Object
@@ -16,8 +68,6 @@ const router = createBrowserRouter([
 console.log(router);
 
 function App() {
-  
-
   return (
     <div className="App">
       <RouterProvider router={router} />
