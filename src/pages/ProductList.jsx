@@ -26,9 +26,7 @@ function ProductList() {
 
   return (
     <ul className="grid grid-cols-3 m-10">
-      {data &&
-        data.items &&
-        data.items?.map((item) => <ProductItem key={item.id} item={item} />)}
+      {data.items?.map((item) => <ProductItem key={item.id} item={item} />)}
     </ul>
   );
 }
