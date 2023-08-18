@@ -9,9 +9,12 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     // 중첩된 라우트
-    chlidren: [
+    children: [
+      // '/'
       { index: true, element: <Home /> },
+      // '/products'
       { path: 'products', element: <Products /> },
+      // '/contact'
       { path: 'contact', element: <Contact /> },
     ],
   },
