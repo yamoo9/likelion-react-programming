@@ -18,20 +18,18 @@ function LearnStateAndEffects() {
   // 이펙트가 필요해!!!
   // React 외적인 일을 처리
   useEffect(() => {
-
     setStatus('loading');
 
     fetch('http://127.0.0.1:8090/api/collections/todos/records')
-      .then(response => response.json())
-      .then(responseData => {
+      .then((response) => response.json())
+      .then((responseData) => {
         setStatus('success');
         setData(responseData);
       })
-      .catch(error => {
+      .catch((error) => {
         setStatus('error');
         setError(error);
       });
-    
   }, []);
 
   // 함수 몸체: 문 또는 식, 함수
@@ -62,8 +60,12 @@ function LearnStateAndEffects() {
       {/* JSX: 식만 사용 가능 */}
       {data && (
         <ul>
-          {data?.map((item) => (
-            <li key={item.id}>{item.title}</li>
+          {data.items?.map((item) => (
+            <li key={item.id}>
+              <label>
+                <input type="checkbox" checked={item.done} readOnly /> {item.doit}
+              </label>
+            </li>
           ))}
         </ul>
       )}
