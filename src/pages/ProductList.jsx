@@ -1,6 +1,5 @@
 import Spinner from '@/components/Spinner';
 import useFetchData from '@/hooks/useFetchData';
-import useMouse from '@/hooks/useMouse';
 import ProductItem from './ProductItem';
 
 const PB_PRODUCTS_ENDPOINT = `
@@ -9,9 +8,6 @@ const PB_PRODUCTS_ENDPOINT = `
 
 function ProductList() {
   const { data, isLoading, error } = useFetchData(PB_PRODUCTS_ENDPOINT);
-  const { x, y } = useMouse();
-
-  console.log({ x, y });
 
   // 로딩 중인 경우 화면
   if (isLoading) {
