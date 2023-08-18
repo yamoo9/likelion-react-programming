@@ -1,8 +1,8 @@
 function Contact() {
   return (
-    <>
-      <h2>문의 페이지</h2>
-    </>
+    <div>
+      <h1 className="text-emerald-500">Contact</h1>
+    </div>
   );
 }
 
