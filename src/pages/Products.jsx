@@ -3,6 +3,7 @@ import Spinner from '@/components/Spinner';
 import useDocumentTitle from '@/hooks/useDocumentTitle';
 import useFetchData from '@/hooks/useFetchData';
 import { getPbImageURL, numberWithComma } from '@/utils';
+import { getSlug } from '@/utils/getSlug';
 
 // PB → READ / CREATE / UPDATE / DELETE
 //
@@ -32,7 +33,7 @@ function Products() {
       <ul className='grid grid-cols-3'>
         {data.items?.map((item) => (
           <li key={item.id} className='justify-self-center'>
-            <Link to={`/product/edit/${item.title}`}>
+            <Link to={`/product/edit/${getSlug(item.title)}`}>
               <figure>
                 <img
                   className="h-[160px] object-cover mx-auto"

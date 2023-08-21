@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
-
+import { useParams } from 'react-router-dom';
 
 function ProductEdit() {
-  const { productName } =useParams();
+  const { productName } = useParams();
 
   return <div>ProductEdit {productName} </div>;
 }
