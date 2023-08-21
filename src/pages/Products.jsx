@@ -32,7 +32,7 @@ function Products() {
       <ul className='grid grid-cols-3'>
         {data.items?.map((item) => (
           <li key={item.id} className='justify-self-center'>
-            <Link to={`/product/edit/${item.id}`}>
+            <Link to={`/product/edit/${item.title}`}>
               <figure>
                 <img
                   className="h-[160px] object-cover mx-auto"
