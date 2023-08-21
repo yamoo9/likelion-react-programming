@@ -3,11 +3,11 @@ import useDocumentTitle from "@/hooks/useDocumentTitle";
 
 function Products() {
   
-  useDocumentTitle('제품');
+  useDocumentTitle('제품 목록');
 
   return (
     <div>
-      <h1 className="text-emerald-500">Products</h1>
+      <h1 className="text-indigo-950">Products</h1>
     </div>
   );
 }

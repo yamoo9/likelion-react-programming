@@ -5,7 +5,7 @@ function Contact() {
 
   return (
     <div>
-      <h1 className="text-emerald-500">Contact</h1>
+      <h1 className="text-indigo-950">Contact</h1>
     </div>
   );
 }

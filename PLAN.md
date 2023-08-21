@@ -1,3 +1,23 @@
+# 8. 21(월)
+
+## 과제 검토
+
+1. 이미지 경로 문제
+1. 성능 문제 (디바운싱으로 해결)
+
+## 데이터 CRUD
+
+1. React Router 동적 라우팅(Dynamic Routing)
+1. PocketBase 데이터 읽기/쓰기/수정/삭제
+1. 폼 상태(Form State) 관리
+
+## 인증
+
+1. PocketBase 인증(Authentication)
+1. 회원가입(Signup)
+1. 로그인(Signin)
+
+
 # 8. 18(금)
 
 ## 커스텀 훅 & 클라이언트 측 라우팅
@@ -6,9 +26,6 @@
 1. 클라이언트 사이드 라우팅(CSR) 적용 방법을 학습합니다.
     - React Router v6.4+ 라이브러리 설치
     - React Router 컴포넌트를 활용해 라우터(Router) 구성
-1. 폼 상태(Form State) 관리 방법을 학습합니다. (PocketBase 인증(Authentication) 활용)
-    - 회원가입(Signup)
-    - 로그인(Signin)
 
 ## 컴포넌트 간 상태 공유 및 DOM 접근/조작
 
