@@ -3,7 +3,7 @@ import useFetchData from '@/hooks/useFetchData';
 import ProductItem from './ProductItem';
 
 const PB_PRODUCTS_ENDPOINT = `
-  http://127.0.0.1:8090/api/collections/products/records
+  ${import.meta.env.VITE_PB_URL}/api/collections/products/records
 `;
 
 function ProductList() {
