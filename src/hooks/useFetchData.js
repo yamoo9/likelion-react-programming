@@ -6,7 +6,7 @@ export default function useFetchData(endpoint) {
   
   // 훅의 규칙 (컴포넌트 또는 다른 훅 내부에서만 사용 가능)
   // custom hook 내부에서 built-in hook 사용 가능
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
