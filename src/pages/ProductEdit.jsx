@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 
 function ProductEdit() {
-  const { productName } = useParams();
+  const { productId } = useParams();
 
-  return <div>ProductEdit {productName} </div>;
+  return <div>ProductEdit {productId} </div>;
 }
 
 export default ProductEdit;
