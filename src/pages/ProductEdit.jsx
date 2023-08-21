@@ -11,8 +11,8 @@ const initialFormState = {
 
 function ProductEdit() {
   const titleId = useId();
-  const priceId = useId();
-  const colorId = useId();
+  // const priceId = useId();
+  // const colorId = useId();
 
   const { productId } = useParams();
   const { isLoading, data } = useProductItem(productId);
