@@ -2,6 +2,7 @@ import { useEffect, useId, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useProductItem from '@/hooks/useProductItem';
 import Spinner from '@/components/Spinner';
+import { useDelete as useDeleteProduct } from '@/hooks/products/useProducts';
 
 const initialFormState = {
   title: '',
@@ -20,6 +21,8 @@ function ProductEdit() {
   const { isLoading, data } = useProductItem(productId);
 
   const [formState, setFormState] = useState(initialFormState);
+
+  const deleteProduct = useDeleteProduct();
 
   useEffect(() => {
     if (!isLoading && data) {
@@ -63,17 +66,24 @@ function ProductEdit() {
     const userConfirm = confirm('정..말로 지울건가요? 🥹');
     
     if (userConfirm) {
-      fetch(`${import.meta.env.VITE_PB_API}/collections/products/records/${productId}`, {
-        method: 'DELETE'
-      })
-      .then(() => {
-        // PB에서 지웠다(성공)
-        // 제품 목록 페이지로 이동
-        navigate('/products');
-      })
-      .catch(error => {
-        console.error(error);
-      });
+      deleteProduct(productId)
+        .then((response) => {
+          console.log(response)
+          navigate('/products')
+        })
+        .catch(error => console.error(error));
+
+      // fetch(`${import.meta.env.VITE_PB_API}/collections/products/records/${productId}`, {
+      //   method: 'DELETE'
+      // })
+      // .then(() => {
+      //   // PB에서 지웠다(성공)
+      //   // 제품 목록 페이지로 이동
+      //   navigate('/products');
+      // })
+      // .catch(error => {
+      //   console.error(error);
+      // });
     }
   }
 
