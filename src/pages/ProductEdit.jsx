@@ -11,8 +11,8 @@ const initialFormState = {
 
 function ProductEdit() {
   const titleId = useId();
-  // const priceId = useId();
-  // const colorId = useId();
+  const colorId = useId();
+  const priceId = useId();
 
   const { productId } = useParams();
   const { isLoading, data } = useProductItem(productId);
@@ -36,6 +36,27 @@ function ProductEdit() {
     });
   };
 
+  const handleEditProduct = (e) => {
+    e.preventDefault(); // ← 이유
+    
+    // client → server(pb)
+    // Content-Type: application/json
+    fetch(`${import.meta.env.VITE_PB_API}/collections/products/records/${productId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formState)
+    })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+  }
+
   if (isLoading) {
     return <Spinner size={120} />;
   }
@@ -44,7 +65,7 @@ function ProductEdit() {
     return (
       <>
         <h2 className="text-2xl text-center">{data.title}({data.color}) 수정 폼</h2>
-        <form>
+        <form onSubmit={handleEditProduct}>
           {/* title */}
           <div>
             <label htmlFor={titleId}>타이틀</label>
@@ -57,7 +78,30 @@ function ProductEdit() {
             />
           </div>
           {/* color */}
+          <div>
+            <label htmlFor={colorId}>컬러</label>
+            <input
+              type="text"
+              name="color"
+              id={colorId}
+              value={formState.color}
+              onChange={handleChangeInput}
+            />
+          </div>
           {/* price */}
+          <div>
+            <label htmlFor={priceId}>프라이스</label>
+            <input
+              type="number"
+              name="price"
+              id={priceId}
+              value={formState.price}
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div>
+            <button type="submit">수정</button>
+          </div>
         </form>
       </>
     );
