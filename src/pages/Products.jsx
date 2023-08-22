@@ -20,6 +20,9 @@ function Products() {
   useDocumentTitle('제품 목록');
   const { isLoading, data } = useProductList();
 
+  // data null 속성 가질 수 없음
+  // data { ..., items: [] } PB에서 전달된 객체
+
   if (isLoading) {
     return <Spinner size={160} />;
   }
@@ -29,7 +32,7 @@ function Products() {
       <div>
         <h1 className="text-indigo-950 text-2xl mb-5">Products</h1>
         <ul className='grid grid-cols-3'>
-          {data.items?.map((item) => (
+          {data.items.map((item) => (
             <li key={item.id} className='justify-self-center'>
               <Link to={`/product/edit/${item.id}`}>
                 <figure>

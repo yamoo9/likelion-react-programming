@@ -43,7 +43,7 @@ function ProductEdit() {
   if (data) {
     return (
       <>
-        <h2 className="text-2xl text-center">{data.title} 수정 폼</h2>
+        <h2 className="text-2xl text-center">{data.title}({data.color}) 수정 폼</h2>
         <form>
           {/* title */}
           <div>
