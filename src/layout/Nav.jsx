@@ -6,10 +6,10 @@ function Nav() {
       <ul className="flex gap-4 p-5 font-extralight">
         <li>
           <NavLink
-            to="/signup"
+            to="/signin"
             className={({ isActive }) => isActive ? 'font-semibold text-rose-600' : ''}
           >
-            Sign Up
+            Sign In
           </NavLink>
         </li>
         <li>
