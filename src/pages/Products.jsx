@@ -1,24 +1,27 @@
 import Spinner from '@/components/Spinner';
 import useDocumentTitle from '@/hooks/useDocumentTitle';
 import useProductList from '@/hooks/useProductList';
+import { useProducts } from '@/api/useProducts';
 import { getPbImageURL, numberWithComma } from '@/utils';
 import { Link } from 'react-router-dom';
-
-// PB → READ / CREATE / UPDATE / DELETE
-//
-// HTTP Methods
-// CREATE => POST
-// READ => GET
-// UPDATE => PUT OR PATCH
-// DELETE => DELETE
-
-// useState
-// useEffect
-// custom hook
+import { useEffect } from 'react';
 
 function Products() {
   useDocumentTitle('제품 목록');
   const { isLoading, data } = useProductList();
+
+  const { status, data: sdkData, getProductList } = useProducts();
+
+  useEffect(() => {
+    getProductList()
+      .then(() => {
+        console.log(status)
+        console.log(sdkData)
+      })
+      .catch(() => {
+        // console.log(status)
+      })
+  }, []);
 
   // data null 속성 가질 수 없음
   // data { ..., items: [] } PB에서 전달된 객체
