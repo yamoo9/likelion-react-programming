@@ -49,7 +49,7 @@ function ProductEdit() {
       [target.name]: target.value,
     });
   };
-  
+
   const handleDebounceChangeInput = debounce(({ target }) => {
     setFormState({
       ...formState,
@@ -62,7 +62,7 @@ function ProductEdit() {
 
     updateProduct(productId, formState)
       .then(() => navigate('/products'))
-      .catch(error => console.error(error));
+      .catch((error) => console.error(error));
   };
 
   const handleDeleteProduct = () => {
@@ -83,10 +83,9 @@ function ProductEdit() {
   }
 
   if (data) {
-
-    console.log(formState.title)
-    console.log(formState.color)
-    console.log(formState.price)
+    console.log(formState.title);
+    console.log(formState.color);
+    console.log(formState.price);
 
     return (
       <>
@@ -111,7 +110,7 @@ function ProductEdit() {
             <input
               type="text"
               name="color"
-              id={colorId}  
+              id={colorId}
               defaultValue={formState.color}
               onChange={handleDebounceChangeInput}
             />
@@ -123,8 +122,9 @@ function ProductEdit() {
               type="number"
               name="price"
               id={priceId}
-              defaultValue={formState.price}
-              onChange={handleDebounceChangeInput}
+              // defaultValue={formState.price}
+              value={formState.price}
+              onChange={handleChangeInput}
             />
           </div>
           <div>
