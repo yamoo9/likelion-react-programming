@@ -42,7 +42,7 @@ function Products() {
                     alt=""
                   />
                   <figcaption className='flex flex-col gap-1 items-center mt-2'>
-                    <span>{item.title}</span>
+                    <span>{item.title}({item.color})</span>
                     <span className='font-semibold'>{numberWithComma(item.price)}</span>
                   </figcaption>
                 </figure>
