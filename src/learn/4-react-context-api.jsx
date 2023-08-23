@@ -1,10 +1,29 @@
 import debounce from '@/utils/debounce';
-import { useState } from 'react';
+import { useState, createContext, useContext } from 'react';
 
 /* Context ------------------------------------------------------------------ */
 
-// 1. Context 생성
+// Context ( Modern (Hooks) / Legacy (Context.Consumer + Render Props or HOC Pattern) )
 
+// JSX
+// React.createElement
+
+// Context 생성
+// React.createContext(초깃값) <- 읽기 전용
+// const [get] = useState(initialValue)
+
+// Context 공급자(Provider)
+// 값(value) <- 읽기/쓰기
+// const [get, set] = useState(initialValue)
+
+// Context 값 꺼내기(가져오기)
+// React.useContext
+
+/* -------------------------------------------------------------------------- */
+
+// 1. Context 생성
+// StateManagementContext
+const SM_Context = createContext();
 
 /* Component ---------------------------------------------------------------- */
 
@@ -25,13 +44,42 @@ function ReactContextAPI() {
     600
   );
 
+  // 컨텍스트 값으로 공급
+  // 렌더 트리거 2가지
+
+
+  // 1. React.useState
+  // const [theme, setTheme] = useState({
+  //   light: {
+  //     fg: 'black',
+  //     bg: 'white',
+  //   },
+  //   dark: {
+  //     fg: 'white',
+  //     bg: 'black',
+  //   },
+  // });
+
+  // const usingStateValue = {
+  //   theme,
+  //   setTheme
+  // };
+
+
+  // 2. React.useReducer (like Redux)
+
   return (
-    <div
-      className="PassingProps p-5 rounded-md"
-      style={{ backgroundColor: color.bg }}
+    <SM_Context.Provider
+      displayName="SM_ContextProvider"
+      // value={usingStateValue}
     >
-      <GrandParent color={color} onChangeColor={handleChangeBgColor} />
-    </div>
+      <div
+        className="PassingProps p-5 rounded-md"
+        style={{ backgroundColor: color.bg }}
+      >
+        <GrandParent color={color} onChangeColor={handleChangeBgColor} />
+      </div>
+    </SM_Context.Provider>
   );
 }
 
@@ -79,6 +127,11 @@ function Child({ color, onChangeColor }) {
 }
 
 function GrandChild({ color, onChangeColor }) {
+  // 2. 컨텍스트 값을 주입(Injection)
+  const contextValue = useContext(SM_Context);
+
+  console.log(contextValue);
+
   return (
     <div
       className="GrandChild p-4 rounded-md flex flex-col justify-center items-center "
@@ -86,8 +139,11 @@ function GrandChild({ color, onChangeColor }) {
         backgroundColor: `color-mix(in srgb, ${color.bg} 100%, white 80%)`,
       }}
     >
-      <p className={`${color.fg} mb-2 font-extrabold text-center drop-shadow-md`}>
-        컨텍스트 공급자(Context Provider)를 사용해<br /> 
+      <p
+        className={`${color.fg} mb-2 font-extrabold text-center drop-shadow-md`}
+      >
+        컨텍스트 공급자(Context Provider)를 사용해
+        <br />
         데이터를 공급(provide)해주세요!
       </p>
       <input
