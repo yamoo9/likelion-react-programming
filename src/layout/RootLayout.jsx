@@ -13,6 +13,7 @@ function RootLayout({ displaySideMenu = false }) {
             <ul>
               <li><Link to="/learn/01">Props 전달</Link></li>
               <li><Link to="/learn/02">상태 끌어올리기</Link></li>
+              <li><Link to="/learn/03">속성(props) 드릴링 이슈</Link></li>
             </ul>
           </nav>
         )}
