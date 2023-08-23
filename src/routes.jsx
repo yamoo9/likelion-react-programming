@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import PassingProps from './learn/1-passing-props';
+import LiftingStateUp from './learn/2-lifting-state-up';
 
 
 const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       {/* 학습 주제 */}
       <Route path="learn/01" element={<PassingProps />} />
+      <Route path="learn/02" element={<LiftingStateUp />} />
     </Route>
   )
 );
