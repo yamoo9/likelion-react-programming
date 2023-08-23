@@ -24,7 +24,7 @@
 1. `useAuth`, `useSetAuth` 커스텀 훅
 1. 루트 보호(Protected Route) 컴포넌트
 1. 토스트(Toast) 알림 (참고: [react-hot-toast](https://react-hot-toast.com/docs/toast))
-1. 인증 유지 (Persist Authentication) - LocalStorage
+1. 인증 유지 (Persist Authentication) - LocalStorage (useStorage)
 
 ## 파일 업로드
 
