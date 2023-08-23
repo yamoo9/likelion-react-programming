@@ -22,7 +22,7 @@ function RootLayout({ displaySideMenu = false }) {
               </li>
               <li>
                 <Link to="/learn/04">
-                  컴포넌트 상태 공유 Context{' '}
+                  상태 공유 Context{' '}
                   <abbr title="Application Programming Interface" className='cursor-help no-underline'>API</abbr>
                 </Link>
               </li>
