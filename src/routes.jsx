@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp';
 import PassingProps from './learn/1-passing-props';
 import LiftingStateUp from './learn/2-lifting-state-up';
 import PropsDrillingIssue from './learn/3-props-drilling-issue';
+import ReactContextAPI from './learn/4-react-context-api';
 
 
 const router = createBrowserRouter(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="learn/01" element={<PassingProps />} />
       <Route path="learn/02" element={<LiftingStateUp />} />
       <Route path="learn/03" element={<PropsDrillingIssue />} />
+      <Route path="learn/04" element={<ReactContextAPI />} />
     </Route>
   )
 );

@@ -9,11 +9,23 @@ function RootLayout({ displaySideMenu = false }) {
       <main className="flex gap-4 p-5">
         {displaySideMenu && (
           <nav className="bg-slate-100 py-3 px-4 min-w-[100px]">
-            <h3 className='sr-only'>학습 내비게이션 메뉴</h3>
+            <h3 className="sr-only">학습 내비게이션 메뉴</h3>
             <ul>
-              <li><Link to="/learn/01">Props 전달</Link></li>
-              <li><Link to="/learn/02">상태 끌어올리기</Link></li>
-              <li><Link to="/learn/03">속성(props) 드릴링 이슈</Link></li>
+              <li>
+                <Link to="/learn/01">Props 전달</Link>
+              </li>
+              <li>
+                <Link to="/learn/02">상태 끌어올리기</Link>
+              </li>
+              <li>
+                <Link to="/learn/03">속성(props) 드릴링 이슈</Link>
+              </li>
+              <li>
+                <Link to="/learn/04">
+                  컴포넌트 상태 공유 Context{' '}
+                  <abbr title="Application Programming Interface" className='cursor-help no-underline'>API</abbr>
+                </Link>
+              </li>
             </ul>
           </nav>
         )}
