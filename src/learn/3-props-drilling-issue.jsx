@@ -1,3 +1,4 @@
+import debounce from '@/utils/debounce';
 import { useState } from 'react';
 
 function PropsDrillingIssue() {
@@ -8,11 +9,14 @@ function PropsDrillingIssue() {
   });
 
   // 상태 업데이트 이벤트 핸들러
-  const handleChangeBgColor = (newBgColor) =>
-    setColor((color) => ({
-      ...color,
-      bg: newBgColor,
-    }));
+  const handleChangeBgColor = debounce(
+    (newBgColor) =>
+      setColor((color) => ({
+        ...color,
+        bg: newBgColor,
+      })),
+    600
+  );
 
   return (
     <div
@@ -67,7 +71,7 @@ export function Child({ color, onChangeColor }) {
 
 export function GrandChild({ color, onChangeColor }) {
   return (
-    <div 
+    <div
       className="GrandChild p-4 rounded-md flex flex-col justify-center items-center "
       style={{
         backgroundColor: `color-mix(in srgb, ${color.bg} 100%, white 80%)`,
@@ -77,7 +81,7 @@ export function GrandChild({ color, onChangeColor }) {
       <input
         type="color"
         aria-label="배경 색상"
-        value={color.bg}
+        defaultValue={color.bg}
         onChange={(e) => {
           onChangeColor(e.target.value);
         }}
