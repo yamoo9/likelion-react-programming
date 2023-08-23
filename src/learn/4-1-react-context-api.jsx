@@ -196,7 +196,7 @@ function GrandChild({ color, onChangeColor }) {
       }}
     >
       <p
-        className={`${color.fg} mb-2 font-extrabold text-center drop-shadow-md`}
+        className={`${color.fg} mb-2 p-4 font-extrabold text-center drop-shadow-md`}
         style={{
           backgroundColor: currentTheme.bg,
           color: currentTheme.fg,
