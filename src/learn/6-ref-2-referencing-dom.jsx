@@ -1,68 +1,72 @@
-import { useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
+import { useLayoutEffect, useRef } from 'react';
 
 function RefExampleReferencingDOM() {
   return (
     <>
       <h2 className="mb-10">컴포넌트 내부의 DOM 요소를 직접 참조하는 Refs</h2>
       <Circle />
+      <Circle />
+      <Circle />
     </>
   );
 }
 
+// React 컴포넌트는 순수해야 한다. (렌더링 프로세스 순수해야 하기 때문에)
+// Web Animation, GSAP, jQuery와 같은 API는 명령형 프로그래밍이다. 
+// 그러므로 컴포넌트 내부에 직접 사용할 수 없다. 
+// 명령형 프로그래밍을 작성할 수 있는 구간은 2군데이다.
+// 1. useLayoutEffect 훅 (브라우저 페인팅 이전에 실행)
+// 2. Event Handler(Listener)
+// 
+// React 요소(가상)가 실제 DOM에 렌더링 된 후 요소를 참조하려면?
+// 기존의 document.getElementById, document.querySelector 사용하는 것이 권장되지 않는다.
+// 그럼 어떻게 하는게 좋냐? 공식문서 피셜 useRef 훅을 사용해 Refs 객체 생성하여 활용하라.
+// const anyRef = useRef(null);
+
+// 1. 
+
 function Circle() {
-  // useEffect 콜백 보다 먼저 실행
-  // 리액트 렌더링 프로세스
-  // 1. 렌더 트리거
-  // 2. 컴포넌트 렌더링
-  // 3. DOM 커밋
-  // - useLayoutEffect() 콜백 (GSAP 문서 참고)
-  // 브라우저 렌더링 프로세스
-  // 4. 브라우저 페인팅
-  // - useEffect() 콜백
+  // DOM 요소를 참조하기 위한 Refs 생성
+  const circleRef = useRef(null); // { current: null }
 
+  // 이펙트 영역
   useLayoutEffect(() => {
-    // Web Animation API
-    // 참고:
-    //   https://developer.mozilla.org/en-US/docs/Web/API/Element/animate
-    //   https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect#parameters
-    //   https://easings.co
+    console.log(circleRef.current);
 
-    // figure 요소가 단 하나만 존재할 것이다. (보장 못함)
-    // .circle 단 하나만 존재할 것이다. (보장 못함)
-    // #circle은 단 하나만 존재할 것이다. (보장?!)
-    const circleElement = document.getElementById('circle');
-    const handleMoveX = (e) => {
-      e.currentTarget.animate(
-        /* keyframes: keyframe[]*/
-        [
-          /* keyframe {} */
-          { transform: 'translateX(0)' }, // from | initial
-          { transform: 'translateX(360px)' }, // to | animate
-        ],
-        /* options */
-        {
-          duration: 2000,
-          iterations: Infinity,
-          direction: 'alternate',
-          easing: 'cubic-bezier(0.72,-0.28,0.16,1.23)',
-          fill: 'forwards',
-        }
-      );
-    };
+    // const circleElement = document.getElementById('circle');
 
-    // 이벤트 연결
-    circleElement.addEventListener('click', handleMoveX);
+    // gsap.set(circleElement, { scale: 0.5 });
 
-    // 연결된 이벤트 정리
-    return () => {
-      circleElement.removeEventListener('click', handleMoveX);
-    };
+    // const handleScale = (e) => {
+    //   gsap.to(e.currentTarget, { scale: 2 });
+    // }
+
+    // circleElement.addEventListener('click', handleScale);
+
+    // return () => {
+    //   circleElement.removeEventListener('click', handleScale);
+    // };
   }, []);
+
+  // 이벤트 핸들러
+  // const handleEnter = ({ currentTarget }) => {
+  //   gsap.to(currentTarget, { opacity: 0.5, scale: 4 });
+  // }
+
+  // const handleLeave = ({ currentTarget }) => {
+  //   gsap.to(currentTarget, { opacity: 1, scale: 1 });
+  // }
 
   return (
     <figure
       role="none"
-      id="circle"
+      ref={circleRef}
+      // ref={(domElement) => {
+      //   circleRef.current = domElement
+      // }}
+      // onPointerEnter={handleEnter}
+      // onPointerLeave={handleLeave}
       className="w-16 h-16 rounded-full bg-yellow-400"
     />
   );
