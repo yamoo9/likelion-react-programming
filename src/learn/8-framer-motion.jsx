@@ -78,7 +78,7 @@ function Circle() {
       whileInView={{
         y: 0,
         opacity: 1,
-        scale: 6,
+        scale: 1.6,
       }}
       viewport={{
         once: true,
