@@ -18,8 +18,6 @@ function FramerMotion_Animation() {
       .map(() => Math.random())
   );
 
-  console.log(keys);
-
   const handleResetAnimation = () => {
     setKey1(Math.random());
     setKey2(Math.random());
@@ -59,7 +57,7 @@ function FramerMotion_Animation() {
           </svg>
         </button>
       </div>
-      <div className="flex gap-10">
+      <div className="flex flex-col gap-[700px]">
         <Circle key={key1} />
         <Circle key={key2} />
         <Circle key={key3} />
@@ -76,13 +74,20 @@ function Circle() {
     <motion.figure
       role="none"
       className="grid place-content-center w-16 h-16 rounded-full bg-yellow-300"
-      initial={{ y: -150 }}
-      animate={{ y: 0 }}
+      initial={{ y: -150, opacity: 0 }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        scale: 6,
+      }}
+      viewport={{
+        once: true,
+      }}
       transition={{
         duration: 4,
         type: 'spring',
         stiffness: 400,
-        damping: 5
+        damping: 5,
       }}
     >
       <motion.img
