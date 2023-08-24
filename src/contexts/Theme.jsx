@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+import { node, string } from 'prop-types';
 import { createContext, useContext, useMemo, useReducer } from 'react';
 
 // Context 생성
@@ -80,6 +80,12 @@ function ThemeProvider({ displayName = 'ThemeContext.Provider', children }) {
     </ThemeContext.Provider>
   );
 }
+
+ThemeProvider.propTypes = {
+  displayName: string,
+  children: node
+}
+
 
 export default ThemeProvider;
 

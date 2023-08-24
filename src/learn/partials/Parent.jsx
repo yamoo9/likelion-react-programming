@@ -1,4 +1,5 @@
-import Child from "./Child";
+import Child from './Child';
+import { shape, string, func } from 'prop-types';
 
 export default function Parent({ color, onChangeColor }) {
   return (
@@ -13,3 +14,10 @@ export default function Parent({ color, onChangeColor }) {
   );
 }
 
+Parent.propTypes = {
+  color: shape({
+    fg: string,
+    bg: string,
+  }).isRequired,
+  onChangeColor: func,
+};

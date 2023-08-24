@@ -1,4 +1,5 @@
 import { Outlet, Link } from 'react-router-dom';
+import { bool } from 'prop-types';
 import FooterBar from './FooterBar';
 import HeaderBar from './HeaderBar';
 
@@ -60,5 +61,9 @@ function RootLayout({ displaySideMenu = false }) {
     </>
   );
 }
+
+RootLayout.propTypes = {
+  displaySideMenu: bool,
+};
 
 export default RootLayout;

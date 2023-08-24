@@ -1,3 +1,5 @@
+import { number, string, arrayOf } from 'prop-types';
+
 function Spinner({
   size = 200,
   message = '로딩 중...',
@@ -86,5 +88,11 @@ function Spinner({
     </svg>
   );
 }
+
+Spinner.propTypes = {
+  size: number,
+  message: string,
+  colors: arrayOf([string]),
+};
 
 export default Spinner;

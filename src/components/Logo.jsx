@@ -1,5 +1,6 @@
-function Logo({ size = 100, ...restProps}) {
+import { number } from 'prop-types';
 
+function Logo({ size = 100, ...restProps }) {
   return (
     <svg
       width={size}
@@ -17,5 +18,9 @@ function Logo({ size = 100, ...restProps}) {
     </svg>
   );
 }
+
+Logo.propTypes = {
+  size: number,
+};
 
 export default Logo;
