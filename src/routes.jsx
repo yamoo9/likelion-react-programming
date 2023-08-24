@@ -23,7 +23,7 @@ import FramerMotion_Animation from './learn/8-framer-motion';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout displaySideMenu />}>
+    <Route path="/" element={<RootLayout displaySideMenu={false} />}>
       <Route index element={<Home />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />

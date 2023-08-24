@@ -4,7 +4,6 @@ import pb from '@/api/pocketbase';
 import debounce from '@/utils/debounce';
 
 function SignIn() {
-
   const navigate = useNavigate();
 
   const [formState, setFormState] = useState({
@@ -17,10 +16,7 @@ function SignIn() {
 
     const { email, password } = formState;
 
-    // PocketBase SDK 인증(로그인) 요청
-    const authData = await pb.collection('users').authWithPassword(email, password);
-
-    console.log(authData);
+    await pb.collection('users').authWithPassword(email, password);
 
     navigate('/');
   };
@@ -29,7 +25,7 @@ function SignIn() {
     const { name, value } = e.target;
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   }, 400);
 
@@ -37,7 +33,10 @@ function SignIn() {
     <div>
       <h2>로그인 폼</h2>
 
-      <form onSubmit={handleSignIn} className='flex flex-col gap-2 mt-2 justify-start items-start'>
+      <form
+        onSubmit={handleSignIn}
+        className="flex flex-col gap-2 mt-2 justify-start items-start"
+      >
         <div>
           <label htmlFor="email">이메일</label>
           <input
@@ -46,7 +45,7 @@ function SignIn() {
             id="email"
             defaultValue={formState.email}
             onChange={handleInput}
-            className='border border-slate-300 ml-2'
+            className="border border-slate-300 ml-2"
           />
         </div>
         <div>
@@ -57,16 +56,38 @@ function SignIn() {
             id="password"
             defaultValue={formState.password}
             onChange={handleInput}
-            className='border border-slate-300 ml-2'
+            className="border border-slate-300 ml-2"
           />
         </div>
-        <div className='flex gap-2'>
-          <button type="submit" className='disabled:cursor-not-allowed'>로그인</button>
+        <div className="flex gap-2">
+          <button type="submit" className="disabled:cursor-not-allowed">
+            로그인
+          </button>
           <button type="reset">취소</button>
         </div>
       </form>
 
       <Link to="/signup">회원가입</Link>
+      <button
+        type="button"
+        className='ml-4'
+        onClick={async () => {
+          if (confirm('뭐가 맘에 안드시죠? 정말 탈퇴할 생각인가요?')) {
+            if (pb.authStore.model) {
+              try {
+                await pb.collection('users').delete(pb.authStore.model.id);
+                console.log('탈퇴 성공');
+              } catch (error) {
+                console.error(error);
+              }
+            } else {
+              console.log('현재 로그인 된 사용자가 없어요.');
+            }
+          }
+        }}
+      >
+        탈퇴
+      </button>
     </div>
   );
 }

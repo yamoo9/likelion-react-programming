@@ -11,7 +11,8 @@
 
 ## 선언형 애니메이션 라이브러리
 
-- [ ] 선언형 프로그래밍으로 작성하는 애니메이션 ([Framer Motion](https://framer.com/motion))
+- [x] 선언형 프로그래밍으로 작성하는 애니메이션 ([Framer Motion](https://framer.com/motion))
+- [x] 컴포넌트 (또는 애니메이션) 초기화 (고유한 `key` 속성(prop) 설정)
 
 ## 인증
 
