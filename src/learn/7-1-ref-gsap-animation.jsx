@@ -1,10 +1,12 @@
 import { gsap } from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
 
-function RefExampleReferencingDOM() {
+function GSAP_Animation() {
   return (
     <>
-      <h2 className="mb-10">컴포넌트 내부의 DOM 요소를 직접 참조하는 Refs</h2>
+      <h2>컴포넌트 내부의 DOM 요소를 직접 참조하는 Refs</h2>
+      <p className="mb-10">원에 마우스를 올려보세요.</p>
+      
       <div className="flex gap-10">
         <Circle />
         <Circle />
@@ -79,4 +81,4 @@ function Circle() {
   );
 }
 
-export default RefExampleReferencingDOM;
+export default GSAP_Animation;

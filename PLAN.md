@@ -6,8 +6,8 @@
 
 ## 컴포넌트 간 상태 공유 및 DOM 접근/조작
 
-- [ ] Refs를 활용해 값을 참조하는 방법 (렌더링 ❌)
-- [ ] Refs를 활용해 DOM에 접근/조작하는 방법 (예: [GSAP](https://greensock.com/gsap/))
+- [x] Refs를 활용해 값을 참조하는 방법 (렌더링 ❌)
+- [x] Refs를 활용해 DOM에 접근/조작하는 방법 (예: [GSAP](https://greensock.com/gsap/))
 
 ## 선언형 애니메이션 라이브러리
 
