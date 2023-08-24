@@ -24,7 +24,9 @@ function RefExampleReferencingDOM() {
 // 그럼 어떻게 하는게 좋냐? 공식문서 피셜 useRef 훅을 사용해 Refs 객체 생성하여 활용하라.
 // const anyRef = useRef(null);
 
-// 1. 
+// 1. Refs 생성
+// 2. JSX 요소 ref 속성(prop)에 Refs 연결
+// 3. useLayoutEffect 훅 안에서 Refs 현재(current) 값으로 명령형 프로그래밍
 
 function Circle() {
   // DOM 요소를 참조하기 위한 Refs 생성
