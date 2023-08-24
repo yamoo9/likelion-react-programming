@@ -34,6 +34,9 @@ function RootLayout({ displaySideMenu = false }) {
               <li>
                 <Link to="/learn/04/02">Context 분리 관리</Link>
               </li>
+              <li>
+                <Link to="/learn/05">값을 기억하기 위한 Refs</Link>
+              </li>
             </ul>
           </nav>
         )}
