@@ -9,6 +9,7 @@
 // 2. useEffect 훅
 
 import { useEffect, useState } from 'react';
+import { func } from 'prop-types';
 
 // 리액트: LearnStateAndEffects 컴포넌트를 다시 실행한다.
 // 리액트 렌더 트리거 효윤님이 요청했으니까.
@@ -98,15 +99,10 @@ function LearnStateAndEffects() {
       <button type="button" onClick={handleToggle}>
         {isShow ? '감춤' : '표시'}
       </button>
-      {isShow && (
-        <CountButton onIncrement={handleIncrement}>
-          +10
-        </CountButton>
-      )}
+      {isShow && <CountButton onIncrement={handleIncrement}>+10</CountButton>}
     </div>
   );
 }
-
 
 function CountButton({ onIncrement }) {
   const [timer, setTimer] = useState(0);
@@ -115,13 +111,13 @@ function CountButton({ onIncrement }) {
   // 컴포넌트 조건부 렌더링에 따라 (마운트(DOM에 추가)|언마운트(DOM에서 제거))
   useEffect(() => {
     // console.log('컴포넌트 마운트 될 때 1회 실행');
-    
+
     // 타이머 설정
     // 1초 마다 내부 함수 실행(CountButton 상태 업데이트)
     // 주기 마다 실행되는 것을 멈출 수 있는 고유 키가 반환
     const cleanupKey = setInterval(() => {
       // setTimer(timer + 10);
-      setTimer(timer => timer + 10);
+      setTimer((timer) => timer + 10);
       console.log('try! interval');
     }, 1000);
 
@@ -129,15 +125,18 @@ function CountButton({ onIncrement }) {
     return function cleanup() {
       // 저지른 일(주기 마다 함수 실행)을 수습(실행되지 않도록 정리)
       clearInterval(cleanupKey);
-    }
-
+    };
   }, []);
 
   return (
     <button type="button" onClick={onIncrement}>
       +10 ({timer})
     </button>
-  )
+  );
 }
+
+CountButton.propTypes = {
+  onIncrement: func,
+};
 
 export default LearnStateAndEffects;

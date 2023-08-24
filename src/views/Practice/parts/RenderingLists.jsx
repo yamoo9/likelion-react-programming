@@ -1,4 +1,5 @@
 import { reactLibrary } from './data';
+import { arrayOf, string, func } from 'prop-types';
 
 function RenderingLists({ statusMessage, renderList }) {
   return (
@@ -40,7 +41,6 @@ function RenderingLists({ statusMessage, renderList }) {
                 <dt>{key}</dt>
                 <dd>{value}</dd>
               </div>
-              
             );
           })}
         </dl>
@@ -48,5 +48,10 @@ function RenderingLists({ statusMessage, renderList }) {
     </>
   );
 }
+
+RenderingLists.propTypes = {
+  statusMessage: arrayOf([string]).isRequired,
+  renderList: func.isRequired,
+};
 
 export default RenderingLists;
