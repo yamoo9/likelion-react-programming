@@ -77,8 +77,22 @@ function Circle() {
   };
 
   const handlePauseAnimation = () => {
-    animationRef.current.pause();
+    if (animationRef.current) {
+      animationRef.current.pause();
+    }
   };
+
+  // Video, Audio
+  // play(), pause()
+  // stop: pause() && currentTime = 0
+  // const handleStopAnimation = () => {
+  //   if (animationRef.current) {
+  //     // stop() 사용자 구현
+  //     animationRef.current.pause();
+  //     animationRef.current.currentTime = 0;
+  //   }
+  // }
+
 
   return (
     <>
