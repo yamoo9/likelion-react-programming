@@ -1,8 +1,60 @@
+# 8. 25(금)
+
+## 컴포넌트 속성(props) 검사
+
+- [ ] 속성(props) 매뉴얼 검사
+- [ ] [prop-types](https://www.npmjs.com/package/prop-types) 패키지 활용
+- [ ] Vite 개발 도구 `lint` 명령
+
+## 인증
+
+- [ ] 인증 유지 (Persist Authentication)
+- [ ] LocalStorage (`useStorage` 커스텀 훅)
+
+## 라우팅
+
+- [ ] 루트 보호 URL 직접 접속 시, 로그인 후 접속 URL로 연결
+- [ ] 브라우저 히스토리 이력 대체(replace)
+    1. 루트 보호 URL 접속 시도
+    1. 로그인 페이지 이동 (로그인 접속 이력 제외)
+    1. 접속 URL로 연결
+- [ ] [useLocation](https://www.notion.so/euid/Advanced-v6-3-09cfe08490104dd18167f4c968de4b3f#75f0d60253834b8f93c1dc910e44e9df) 훅 (`pathname`, `search`, `hash`, `state`)
+
+## 파일 업로드
+
+- [ ] 대시보드(또는 관리자) 페이지
+    - 상품 추가(NEW)
+    - 상품 수정(EDIT)
+    - 상품 삭제(DELETE)
+- [ ] [form](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form) 폼 요소 ([`multipart/form-data`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form#attr-enctype))
+- [ ] [input:file](https://developer.mozilla.org/ko/docs/Web/HTML/Element/input/file) 파일 업로드
+- [ ] [FormData](https://developer.mozilla.org/ko/docs/Web/API/FormData) 폼 데이터
+
+## 앱 상태 관리
+
+- [ ] [Zustand](https://docs.pmnd.rs/zustand) 라이브러리
+
+## 서버 상태 관리
+
+- [ ] [TanStack Query](https://tanstack.com/query/latest) 라이브러리
+
+## 성능 개선
+
+- [ ] [코드 분할 (Code Split)](https://ko.legacy.reactjs.org/docs/code-splitting.html#bundling)
+- [ ] [프로덕션 버전으로 빌드(Build for Production)](https://ko.vitejs.dev/guide/build.html)
+- [ ] [멋사 4기, 성능 개선 사례](https://github.com/yamoo9/likelion-FEQA/issues/286#issuecomment-1504926019) ( [BEFORE](https://github.com/yamoo9/likelion-FEQA/files/11183331/POTATO-MARKET-main.zip) → [AFTER](https://github.com/yamoo9/likelion-FEQA/files/11209558/POTATO-MARKET-review-by-yamoo9.zip) )
+
+## 배포
+
+- [ ] PocketBase 데이터베이스 배포 ([pockethost.io](https://pockethost.io))
+- [ ] React 애플리케이션 배포 ([vercel](https://ko.vitejs.dev/guide/static-deploy.html#vercel))
+
+
 # 8. 24(목)
 
 ## 이슈 검토
 
-1. useEffect 훅 종속성 배열(경고 & 루프 순환) 이슈
+- [ ] useEffect 훅 종속성 배열(경고 & 루프 순환) 이슈
 
 ## 컴포넌트 간 상태 공유 및 DOM 접근/조작
 
@@ -16,19 +68,12 @@
 
 ## 인증
 
-- [ ] 로그아웃 (Sign Out)
-- [ ] 인증 스토어 - PocketBase AuthStore
-- [ ] 인증 공급자 - React Context API
-- [ ] `useAuth`, `useSetAuth` 커스텀 훅
-- [ ] 루트 보호(Protected Route) 컴포넌트
-- [ ] 토스트(Toast) 알림 (참고: [react-hot-toast](https://react-hot-toast.com/docs/toast))
-- [ ] 인증 유지 (Persist Authentication) - LocalStorage (useStorage)
-
-## 파일 업로드
-
-- [ ] [form](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form) 폼 요소
-- [ ] [input:file](https://developer.mozilla.org/ko/docs/Web/HTML/Element/input/file) 파일 업로드
-- [ ] [FormData](https://developer.mozilla.org/ko/docs/Web/API/FormData) 폼 데이터
+- [x] 로그아웃 (Sign Out)
+- [x] 인증 스토어 - PocketBase AuthStore
+- [x] 인증 공급자 - React Context API
+- [x] `useAuth`, `useSetAuth` 커스텀 훅
+- [x] 루트 보호(Protected Route) 컴포넌트
+- [x] 토스트(Toast) 알림 (참고: [react-hot-toast](https://react-hot-toast.com/docs/toast))
 
 
 # 8. 23(수)

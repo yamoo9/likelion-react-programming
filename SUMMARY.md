@@ -1,3 +1,17 @@
+# 8. 24
+
+1. Refs를 활용해 값을 참조해 기억하거나, DOM 요소를 참조할 수 있습니다.
+1. [GSAP](https://greensock.com/gsap/) 애니메이션 라이브러리는 명령형 방식으로 작성해야 합니다. (`useRef` + `useLayoutEffect`(with cleanup))
+1. React 18+부터 지원하는 동시성 렌더링 모드 영향으로 GSAP 컨텍스트([`gsap.context()`](https://greensock.com/docs/v3/GSAP/gsap.context()))를 사용해야 스크린 티어링(screen tearing) 현상을 해결할 수 있습니다.
+1. [Framer Motion](https://framer.com/motion)은 React 전용 애니메이션 라이브러리로 선언형 프로그래밍 방식으로 작성합니다. 
+1. 고유한 `key` 속성(prop) 설정은 컴포넌트 (또는 애니메이션) 초기화에 사용될 수 있습니다. 
+1. PocketBase AuthStore를 사용해 로그인 상황을 체크하거나, 로그아웃 등 기능을 사용할 수 있습니다.
+1. React Context API를 사용해 인증 상황을 앱에 공급할 수 있습니다.
+1. `useAuth` 커스텀 훅을 사용하면 앱 어디서나 인증 상황을 주입받을 수 있습니다.
+1. 루트 보호(Protected Route) 컴포넌트는 인증된 사용자만 접근 가능하도록 처리합니다. 
+1. [react-hot-toast](https://react-hot-toast.com/docs/toast) 라이브러리를 사용해 손쉽게 사용자에게 공지(Notification)할 수 있습니다.
+
+
 # 8. 23
 
 1. 리액트는 기본적으로 단방향 데이터 흐름에 따라 작동합니다. (Top Down Approach)
