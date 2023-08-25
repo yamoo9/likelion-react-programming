@@ -3,7 +3,7 @@
 // 2. key 값으로 로컬(또는 세션) 스토리지에서 데이터 읽기(JavaScript 데이터 타입 변환된 값)
 // 3. key 값으로 로컬(또는 세션) 스토리지 데이터 삭제
 
-import { useCallback, useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useState } from 'react';
 
 const {
   localStorage: storage,
@@ -52,21 +52,24 @@ function useStorage(key) {
   //   [key]
   // );
 
-  const remove = useCallback(
-    () => { deleteData(key); }, 
-    [key]
-  );
+  const remove = useCallback(() => {
+    deleteData(key);
+    setStorageData();
+  }, [key]);
 
   // const removeMemo = useMemo(
   //   () => () => { deleteData(key); },
   //   [key]
   // );
 
-  return {
-    storageData,
-    update,
-    remove,
-  };
+  return useMemo(
+    () => ({
+      storageData,
+      update,
+      remove,
+    }),
+    [remove, storageData, update]
+  );
 }
 
 export default useStorage;

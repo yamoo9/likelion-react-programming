@@ -21,8 +21,7 @@ function useMyCallback(callback, dependencies) {
 import { useCallback, useMemo } from 'react';
 
 function Component() {
-
-  const myCb = useMyCallbcak(() => console.log('나를 기억해'), []);
+  const myCb = useMyCallback(() => console.log('나를 기억해'), []);
   // vs.
   const reactCb = useCallback(() => console.log('나를 기억해'), []);
   const reactCbMemo = useMemo(() => () => console.log('나를 기억해'), []);
