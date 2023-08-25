@@ -12,6 +12,7 @@
 import { createContext, useEffect, useState, useContext } from 'react';
 import { string, node } from 'prop-types';
 import pb from '@/api/pocketbase';
+import useStorage from '@/hooks/useStorage';
 
 // Context 생성
 const AuthContext = createContext();
@@ -25,10 +26,25 @@ const initialAuthState = {
 
 // Context.Provider 래퍼 컴포넌트 작성
 function AuthProvider({ displayName = 'AuthProvider', children }) {
+  const { storageData } = useStorage('pocketbase_auth');
+
+  // 인증 상태 유지(Persist)
+  useEffect(() => {
+    if (storageData) {
+      const { token, model } = storageData;
+      setAuthState({
+        isAuth: !!model,
+        user: model,
+        token,
+      });
+    }
+  }, [storageData]);
+
   // 인증 상태
   const [authState, setAuthState] = useState(initialAuthState);
 
   useEffect(() => {
+    // 업데이트 될 때만 상태 변경
     const unsub = pb.authStore.onChange((token, model) => {
       setAuthState((state) => ({
         ...state,

@@ -53,6 +53,7 @@ function useStorage(key) {
   // );
 
   const remove = useCallback(() => {
+    // 로컬 스토리지에서 데이터 삭제
     deleteData(key);
     setStorageData();
   }, [key]);
