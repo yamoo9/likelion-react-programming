@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { string, number, bool, arrayOf, shape } from 'prop-types';
 import { numberWithComma } from '@/utils';
 
 function ComponentPropTypes() {
@@ -11,14 +11,17 @@ function ComponentPropTypes() {
       {
         id: 1,
         content: 'zoom',
+        currentYear: 2023
       },
       {
         id: 2,
         content: 'screen share',
+        currentYear: 2023
       },
       {
         id: 3,
         content: 'online lecture',
+        currentYear: 2023
       },
     ],
     isOnline: true,
@@ -57,7 +60,7 @@ function ScreenCast(props) {
       <dd>
         <ul>
           {props.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
+            <li key={tag.id}>{tag.content}</li>
           ))}
         </ul>
       </dd>
@@ -69,11 +72,21 @@ function ScreenCast(props) {
 // 컴포넌트 속성(props) 유효성 검사 도구
 // 컴포넌트.propTypes = {}
 ScreenCast.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool.isRequired,
-  price: PropTypes.number.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string), // string[] | Array<string>
+  id: string.isRequired,
+  title: string.isRequired,
+  isOnline: bool.isRequired,
+  price: number.isRequired,
+  tags: arrayOf(
+    shape({
+      id: number,
+      content: string,
+    })
+  ).isRequired,
+
+  // 문자 유형으로만 구성된 배열
+  // tags: PropTypes.arrayOf(PropTypes.string), // string[] | Array<string>
+
+  // 숫자, 문자, 불리언으로 구성된 배열
   // tags: PropTypes.arrayOf(
   //   PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
   // ), // (string|number|boolean)[] | Array<string|number|boolean>
