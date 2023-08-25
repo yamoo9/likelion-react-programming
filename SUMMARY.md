@@ -11,28 +11,7 @@
 - 클라이언트(브라우저) 환경에서 업로드할 이미지를 표시할 경우 `URL.createObjectURL(file)`을 사용한다.
 - useMemo() 훅은 JavaScript의 모든 데이터 유형을 기억(memoization)한다.
 - useCallback() 훅은 JavaScript 함수 유형만 기억한다. 
-- useMemo() 훅을 사용해 함수 유형 값을 기억할 수도 있지만, useCallback() 훅을 사용하는 것이 문장 구문이 간결하다.
-
-```JSX
-import { useMemo } from 'react';
-
-function useMyCallback(callback, dependencies) {
-  return useMemo(() => callback, dependencies);
-}
-```
-
-```jsx
-import { useCallback, useMemo } from 'react';
-
-function Component() {
-  const myCb = useMyCallback(() => console.log('나를 기억해'), []);
-  // vs.
-  const reactCb = useCallback(() => console.log('나를 기억해'), []);
-  const reactCbMemo = useMemo(() => () => console.log('나를 기억해'), []);
-  
-  return (...);
-}
-```
+- useMemo() 훅을 사용해 함수 유형 값을 기억할 수도 있지만, useCallback() 훅을 사용하는 것이 문장 구문이 간결하다. ([답변 참고](https://www.notion.so/useMemo-VS-useCallback-e546342310fc4ce492d22d272ec343d1?pvs=4#5f497e3b1dca4a67b732ad3139f5618c))
 
 # 8. 24
 
