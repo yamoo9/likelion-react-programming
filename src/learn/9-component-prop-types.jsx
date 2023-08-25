@@ -3,7 +3,7 @@ import { string, number, bool, arrayOf, shape } from 'prop-types';
 import { numberWithComma } from '@/utils';
 
 function ComponentPropTypes() {
-  const [screencast, setScreencast] = useState({
+  const [screencast] = useState({
     id: 'kciskdfkijc',
     title: '화면 공유',
     // tags: ['zoom', 'screen share', 'online lecture'],

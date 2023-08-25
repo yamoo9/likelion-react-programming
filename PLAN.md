@@ -4,9 +4,9 @@
 
 ## 컴포넌트 속성(props) 검사
 
-- [ ] 속성(props) 매뉴얼 검사
-- [ ] [prop-types](https://www.npmjs.com/package/prop-types) 패키지 활용
-- [ ] Vite 개발 도구 `lint` 명령
+- [x] 속성(props) 매뉴얼 검사
+- [x] [prop-types](https://www.npmjs.com/package/prop-types) 패키지 활용
+- [x] Vite 개발 도구 `lint` 명령
 
 ## 인증
 
