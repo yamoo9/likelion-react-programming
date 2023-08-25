@@ -2,7 +2,34 @@
 
 # 8. 25 
 
+- 타입 검사 필요할까? (권장)
+    - JavaScript를 사용해 React 앱을 개발한다면? prop-types 패키지 사용을 권장한다. (props 검사만 가능)
+    - TypeScript를 사용해 React 앱을 개발한다면? 강력한 타입 검사 시스템을 사용해 코드 품질을 높일 수 있다.
+- useMemo() 훅은 JavaScript의 모든 데이터 유형을 기억(memoization)한다.
+- useCallback() 훅은 JavaScript 함수 유형만 기억한다. 
+- useMemo() 훅을 사용해 함수 유형 값을 기억할 수도 있지만, useCallback() 훅을 사용하는 것이 문장 구문이 간결하다.
 
+```JSX
+import { useMemo } from 'react';
+
+function useMyCallback(callback, dependencies) {
+  return useMemo(() => callback, dependencies);
+}
+```
+
+```jsx
+import { useCallback, useMemo } from 'react';
+
+function Component() {
+
+  const myCb = useMyCallbcak(() => console.log('나를 기억해'), []);
+  // vs.
+  const reactCb = useCallback(() => console.log('나를 기억해'), []);
+  const reactCbMemo = useMemo(() => () => console.log('나를 기억해'), []);
+  
+  return (...);
+}
+```
 
 # 8. 24
 

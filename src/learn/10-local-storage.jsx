@@ -2,7 +2,6 @@ import useStorage from '@/hooks/useStorage';
 
 function LocalStorage() {
   const { storageData, update, remove } = useStorage('yamoo9');
-  const { update2, remove2 } = useStorage('mama');
 
   return (
     <>
@@ -10,7 +9,7 @@ function LocalStorage() {
 
       <button
         onClick={() => {
-          update()
+          // update()
         }}
         type="button"
         className="border border-slate-300 p-2 my-2"
