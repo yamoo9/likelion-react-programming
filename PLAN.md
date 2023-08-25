@@ -15,7 +15,7 @@
 
 ## 라우팅
 
-- [ ] 인증에 따른 라우팅 접근 시도 중 발생한 경고 해결 방법
+- [x] 인증에 따른 라우팅 접근 시도 중 발생한 경고 해결 방법
     - Warning: Cannot update a component (`Ie`) while rendering a different component (`ProtectRoute`). 
     - To locate the bad setState() call inside `ProtectRoute`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
 - [ ] 루트 보호 URL 직접 접속 시, 로그인 후 접속 URL로 연결
