@@ -5,6 +5,10 @@
 - 타입 검사 필요할까? (권장)
     - JavaScript를 사용해 React 앱을 개발한다면? prop-types 패키지 사용을 권장한다. (props 검사만 가능)
     - TypeScript를 사용해 React 앱을 개발한다면? 강력한 타입 검사 시스템을 사용해 코드 품질을 높일 수 있다.
+- 로컬 스토리지를 사용해 인증 상태를 유지(persist)할 수 있다.
+- 인증 상태에서만 접속 가능한 루트(route)를 보호(protect)해야 한다.
+- PocketBase 데이터베이스에 파일을 업로드 하려면 JSON이 아니라, FormData를 사용해야 한다.
+- 클라이언트(브라우저) 환경에서 업로드할 이미지를 표시할 경우 `URL.createObjectURL(file)`을 사용한다.
 - useMemo() 훅은 JavaScript의 모든 데이터 유형을 기억(memoization)한다.
 - useCallback() 훅은 JavaScript 함수 유형만 기억한다. 
 - useMemo() 훅을 사용해 함수 유형 값을 기억할 수도 있지만, useCallback() 훅을 사용하는 것이 문장 구문이 간결하다.

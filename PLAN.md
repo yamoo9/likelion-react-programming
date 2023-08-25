@@ -1,39 +1,25 @@
 ###### [학습 요약](./SUMMARY.md) 보기
 
-# 8. 25(금)
+# 8. 28(월)
 
-## 컴포넌트 속성(props) 검사
+## 인증 
 
-- [x] 속성(props) 매뉴얼 검사
-- [x] [prop-types](https://www.npmjs.com/package/prop-types) 패키지 활용
-- [x] Vite 개발 도구 `lint` 명령
-
-## 인증
-
-- [x] LocalStorage (`useStorage` 커스텀 훅)
-- [x] 인증 유지 (Persist Authentication)
+- [ ] `useStorage` 커스텀 훅 재구성(re-design)
 
 ## 라우팅
 
-- [x] 인증에 따른 라우팅 접근 시도 중 발생한 경고 해결 방법
-    - Warning: Cannot update a component (`Ie`) while rendering a different component (`ProtectRoute`). 
-    - To locate the bad setState() call inside `ProtectRoute`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
+- [ ] 인증 상태 + 보호된 루트에서 새로고침 시 로그인 페이지로 이동하는 문제
 - [ ] 루트 보호 URL 직접 접속 시, 로그인 후 접속 URL로 연결
 - [ ] 브라우저 히스토리 이력 대체(replace)
     1. 루트 보호 URL 접속 시도
     1. 로그인 페이지 이동 (로그인 접속 이력 제외)
     1. 접속 URL로 연결
-- [x] [useLocation](https://www.notion.so/euid/Advanced-v6-3-09cfe08490104dd18167f4c968de4b3f#75f0d60253834b8f93c1dc910e44e9df) 훅 (`pathname`, `search`, `hash`, `state`)
 
-## 파일 업로드
+## 대시보드 (관리자 페이지)
 
-- [ ] 대시보드(또는 관리자) 페이지
-    - 상품 추가(NEW)
-    - 상품 수정(EDIT)
-    - 상품 삭제(DELETE)
-- [ ] [form](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form) 폼 요소 ([`multipart/form-data`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form#attr-enctype))
-- [ ] [input:file](https://developer.mozilla.org/ko/docs/Web/HTML/Element/input/file) 파일 업로드
-- [ ] [FormData](https://developer.mozilla.org/ko/docs/Web/API/FormData) 폼 데이터
+- [ ] 상품 추가(NEW)
+- [ ] 상품 수정(EDIT)
+- [ ] 상품 삭제(DELETE)
 
 ## 앱 상태 관리
 
@@ -53,6 +39,34 @@
 
 - [ ] PocketBase 데이터베이스 배포 ([pockethost.io](https://pockethost.io))
 - [ ] React 애플리케이션 배포 ([vercel](https://ko.vitejs.dev/guide/static-deploy.html#vercel))
+
+
+# 8. 25(금)
+
+## 컴포넌트 속성(props) 검사
+
+- [x] 속성(props) 매뉴얼 검사
+- [x] [prop-types](https://www.npmjs.com/package/prop-types) 패키지 활용
+- [x] Vite 개발 도구 `lint` 명령
+
+## 인증
+
+- [x] LocalStorage (`useStorage` 커스텀 훅)
+- [x] 인증 유지 (Persist Authentication)
+
+## 라우팅
+
+- [x] 인증에 따른 라우팅 접근 시도 중 발생한 경고 해결 방법
+    - Warning: Cannot update a component (`Ie`) while rendering a different component (`ProtectRoute`). 
+    - To locate the bad setState() call inside `ProtectRoute`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
+- [x] [useLocation](https://www.notion.so/euid/Advanced-v6-3-09cfe08490104dd18167f4c968de4b3f#75f0d60253834b8f93c1dc910e44e9df) 훅 (`pathname`, `search`, `hash`, `state`)
+
+## 파일 업로드
+
+- [x] 상품 추가(NEW)
+- [x] [form](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form) 폼 요소 ([`multipart/form-data`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/form#attr-enctype))
+- [x] [input:file](https://developer.mozilla.org/ko/docs/Web/HTML/Element/input/file) 파일 업로드
+- [x] [FormData](https://developer.mozilla.org/ko/docs/Web/API/FormData) 폼 데이터
 
 
 # 8. 24(목)
