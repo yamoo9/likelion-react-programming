@@ -1,12 +1,15 @@
-import useDocumentTitle from "@/hooks/useDocumentTitle";
+import { Helmet } from 'react-helmet-async';
 
 function Contact() {
-  useDocumentTitle('의뢰');
-
   return (
-    <div>
-      <h1 className="text-indigo-950">Contact</h1>
-    </div>
+    <>
+      <Helmet>
+        <title>Contact - ReactBird</title>
+      </Helmet>
+      <div>
+        <h1 className="text-indigo-950">Contact</h1>
+      </div>
+    </>
   );
 }
 

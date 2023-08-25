@@ -23,7 +23,7 @@
     1. 루트 보호 URL 접속 시도
     1. 로그인 페이지 이동 (로그인 접속 이력 제외)
     1. 접속 URL로 연결
-- [ ] [useLocation](https://www.notion.so/euid/Advanced-v6-3-09cfe08490104dd18167f4c968de4b3f#75f0d60253834b8f93c1dc910e44e9df) 훅 (`pathname`, `search`, `hash`, `state`)
+- [x] [useLocation](https://www.notion.so/euid/Advanced-v6-3-09cfe08490104dd18167f4c968de4b3f#75f0d60253834b8f93c1dc910e44e9df) 훅 (`pathname`, `search`, `hash`, `state`)
 
 ## 파일 업로드
 
