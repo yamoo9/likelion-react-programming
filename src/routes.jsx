@@ -6,6 +6,7 @@ import {
 import ProtectRoute from './components/ProtectRoute';
 import RootLayout from './layout/RootLayout';
 import PassingProps from './learn/1-passing-props';
+import LocalStorage from './learn/10-local-storage';
 import LiftingStateUp from './learn/2-lifting-state-up';
 import PropsDrillingIssue from './learn/3-props-drilling-issue';
 import ReactContextAPI1 from './learn/4-1-react-context-api';
@@ -19,10 +20,10 @@ import ComponentPropTypes from './learn/9-component-prop-types';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import ProductEdit from './pages/ProductEdit';
+import ProductNew from './pages/ProductNew';
 import Products from './pages/Products';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import LocalStorage from './learn/10-local-storage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,14 @@ const router = createBrowserRouter(
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="products" element={<Products />} />
+      <Route
+        path="product/new"
+        element={
+          <ProtectRoute>
+            <ProductNew />
+          </ProtectRoute>
+        }
+      />
       <Route
         path="product/edit/:productId"
         element={
