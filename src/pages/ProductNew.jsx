@@ -70,7 +70,7 @@ function ProductNew() {
 
   return (
     <div className="container max-w-lg mx-auto">
-      <h2 className="my-5 text-2xl font-medium text-blue-950 text-center">
+      <h2 className="my-5 text-2xl font-medium text-blue-950 text-center dark:text-sky-500/90">
         상품 등록
       </h2>
       <form
@@ -88,7 +88,10 @@ function ProductNew() {
             name="title"
             id="title"
             placeholder="Slim Fit Ribbed Sleeveless"
-            className="border border-slate-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
+            className="
+              border border-zinc-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2
+              dark:bg-black dark:border-zinc-300/40 dark:placeholder:text-zinc-600 dark:text-sky-400 dark:focus:ring-1 dark:focus:ring-sky-400 dark:focus:ring-offset-1
+            "
           />
         </div>
         <div className="flex flex-col gap-2 w-full">
@@ -99,7 +102,10 @@ function ProductNew() {
             name="color"
             id="color"
             placeholder="Black"
-            className="border border-slate-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
+            className="
+              border border-zinc-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2
+              dark:bg-black dark:border-zinc-300/40 dark:placeholder:text-zinc-600 dark:text-sky-400 dark:focus:ring-1 dark:focus:ring-sky-400 dark:focus:ring-offset-1
+            "
           />
         </div>
         <div className="flex flex-col gap-2 w-full">
@@ -111,7 +117,10 @@ function ProductNew() {
             id="price"
             placeholder="49000"
             step="100"
-            className="border border-slate-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
+            className="
+              border border-zinc-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2
+              dark:bg-black dark:border-zinc-300/40 dark:placeholder:text-zinc-600 dark:text-sky-400 dark:focus:ring-1 dark:focus:ring-sky-400 dark:focus:ring-offset-1
+            "
           />
         </div>
         <div className="flex flex-col gap-2 w-full">
@@ -127,7 +136,7 @@ function ProductNew() {
               onChange={handleUpload}
               className="absolute z-10 w-full h-full opacity-0 cursor-pointer"
             />
-            <div className="flex gap-2 overflow-x-auto p-2 w-full h-36 bg-slate-100">
+            <div className="flex gap-2 overflow-x-auto p-2 w-full h-36 bg-zinc-100 dark:bg-black dark:outline-[1px] dark:outline-double dark:outline-zinc-100/40 dark:rounded">
               {fileImages.map((file) => {
                 return (
                   <img key={file.label} src={file.image} alt={file.label} />
@@ -139,13 +148,19 @@ function ProductNew() {
         <div className="flex justify-center gap-2 w-full mt-4 mb-6">
           <button
             type="submit"
-            className="py-1 px-3.5 border-2 border-slate-300 hover:border-slate-400 rounded-full"
+            className="
+              py-1 px-3.5 border-2 border-zinc-300 hover:border-zinc-400 rounded-full
+             dark:text-sky-400 dark:border-sky-400 dark:border-[1px] dark:hover:bg-sky-400 dark:hover:text-sky-50 dark:hover:border-sky-500
+            "
           >
             등록
           </button>
           <button
             type="reset"
-            className="py-1 px-3.5 border-2 border-slate-200 bg-slate-200 hover:bg-slate-300 hover:border-slate-300 rounded-full"
+            className="
+              py-1 px-3.5 border-2 border-zinc-200 bg-zinc-200 hover:bg-zinc-300 hover:border-zinc-300 rounded-full
+              dark:bg-zinc-400 dark:border-zinc-400
+            "
           >
             취소
           </button>

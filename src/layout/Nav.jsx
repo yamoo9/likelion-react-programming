@@ -1,4 +1,5 @@
 import { useAuth } from '@/contexts/Auth';
+import { node, string } from 'prop-types';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 function Nav() {
@@ -12,53 +13,24 @@ function Nav() {
 
   return (
     <nav>
-      <ul className="flex gap-4 p-5 items-center font-extralight">
+      <ul className="flex gap-5 p-5 items-center font-extralight">
         {!isAuth && (
           <li>
-            <NavLink
-              to="/signin"
-              className={({ isActive }) =>
-                isActive ? 'font-semibold text-rose-600' : ''
-              }
-            >
-              Sign In
-            </NavLink>
+            <Link href="/signin">Sign In</Link>
           </li>
         )}
-        {isAuth && <li>
-          <NavLink
-            to="/product/new"
-            className={({ isActive }) =>
-              isActive ? 'font-semibold text-rose-600' : ''
-            }
-          >
-            NEW
-          </NavLink>
-        </li>}
+        {isAuth && (
+          <li>
+            <Link href="/product/new">NEW</Link>
+          </li>
+        )}
         <li>
-          <NavLink
-            to="/products"
-            className={({ isActive }) =>
-              isActive ? 'font-semibold text-rose-600' : ''
-            }
-          >
-            Products
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? 'font-semibold text-rose-600' : ''
-            }
-          >
-            Contact
-          </NavLink>
+          <Link href="/products">Products</Link>
         </li>
         {isAuth && (
           <button
             type="button"
-            className="py-0.5 px-2 border-2 border-white/40 rounded-md hover:border-white"
+            className="py-0.5 pb-1 px-2 text-zinc-400 border border-white/40 rounded hover:border-sky-400/70 hover:text-sky-400"
             onClick={handleSignOut}
           >
             Sign Out
@@ -70,3 +42,24 @@ function Nav() {
 }
 
 export default Nav;
+
+function Link({ href, children }) {
+  return (
+    <NavLink
+      to={href}
+      className={({ isActive }) => {
+        const baseClassName = 'font-suit font-normal uppercase';
+        return isActive
+          ? `${baseClassName} text-sky-400 cursor-default`
+          : `${baseClassName} text-zinc-400 hover:text-slate-50`;
+      }}
+    >
+      {children}
+    </NavLink>
+  );
+}
+
+Link.propTypes = {
+  href: string.isRequired,
+  children: node.isRequired,
+};

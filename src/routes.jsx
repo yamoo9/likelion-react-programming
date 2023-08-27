@@ -27,7 +27,7 @@ import SignUp from './pages/SignUp';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout displaySideMenu={true} />}>
+    <Route path="/" element={<RootLayout displaySideMenu={false} />}>
       <Route index element={<Home />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />
@@ -49,6 +49,7 @@ const router = createBrowserRouter(
         }
       />
       <Route path="contact" element={<Contact />} />
+      <Route path="*" element={<Home />} />
 
       {/* 학습 주제 */}
       <Route path="learn/01" element={<PassingProps />} />
