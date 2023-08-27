@@ -1,5 +1,7 @@
 import debounce from '@/utils/debounce';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { string, func } from 'prop-types';
 
 function PropsDrillingIssue() {
   // 상태
@@ -19,12 +21,17 @@ function PropsDrillingIssue() {
   );
 
   return (
-    <div
-      className="PassingProps p-5 rounded-md"
-      style={{ backgroundColor: color.bg }}
-    >
-      <GrandParent color={color} onChangeColor={handleChangeBgColor} />
-    </div>
+    <>
+      <Helmet>
+        <title>Props Drilling Issue - Learn</title>
+      </Helmet>
+      <div
+        className="PassingProps p-5 rounded-md"
+        style={{ backgroundColor: color.bg }}
+      >
+        <GrandParent color={color} onChangeColor={handleChangeBgColor} />
+      </div>
+    </>
   );
 }
 
@@ -43,6 +50,11 @@ export function GrandParent({ color, onChangeColor }) {
   );
 }
 
+GrandParent.propTypes = {
+  color: string,
+  onChangeColor: func,
+};
+
 export function Parent({ color, onChangeColor }) {
   return (
     <div
@@ -56,6 +68,8 @@ export function Parent({ color, onChangeColor }) {
   );
 }
 
+Parent.propTypes = GrandParent.propTypes;
+
 export function Child({ color, onChangeColor }) {
   return (
     <div
@@ -68,6 +82,8 @@ export function Child({ color, onChangeColor }) {
     </div>
   );
 }
+
+Child.propTypes = GrandParent.propTypes;
 
 export function GrandChild({ color, onChangeColor }) {
   return (
@@ -89,5 +105,7 @@ export function GrandChild({ color, onChangeColor }) {
     </div>
   );
 }
+
+GrandChild.propTypes = GrandParent.propTypes;
 
 export default PropsDrillingIssue;

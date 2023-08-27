@@ -1,15 +1,22 @@
 import debounce from '@/utils/debounce';
+import { func, string } from 'prop-types';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function LiftingStateUp() {
   const [color, setColor] = useState('#352a2a');
   const handleChangeBgColor = (newColor) => setColor(newColor);
 
   return (
-    <div className="PassingProps flex flex-col gap-2">
-      <Parent color={color} onChangeColor={handleChangeBgColor} />
-      <OtherParent color={color} />
-    </div>
+    <>
+      <Helmet>
+        <title>Lifting state up - Learn</title>
+      </Helmet>
+      <div className="PassingProps flex flex-col gap-2">
+        <Parent color={color} onChangeColor={handleChangeBgColor} />
+        <OtherParent color={color} />
+      </div>
+    </>
   );
 }
 
@@ -30,6 +37,10 @@ function OtherParent({ color }) {
   );
 }
 
+OtherParent.propTypes = {
+  color: string,
+};
+
 export function Parent({ color, onChangeColor }) {
   return (
     <div className="Parent">
@@ -37,6 +48,11 @@ export function Parent({ color, onChangeColor }) {
     </div>
   );
 }
+
+Parent.propTypes = {
+  ...OtherParent.propTypes,
+  onChangeColor: func,
+};
 
 export function Child({ color, onChangeColor }) {
   return (
@@ -53,3 +69,5 @@ export function Child({ color, onChangeColor }) {
     </div>
   );
 }
+
+Child.propTypes = Parent.propTypes;

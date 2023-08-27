@@ -1,9 +1,13 @@
 import { gsap } from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function GSAP_Context() {
   return (
     <>
+      <Helmet>
+        <title>GSAP Context - Learn</title>
+      </Helmet>
       <h2 className="mb-10">컴포넌트 내부의 DOM 요소를 직접 참조하는 Refs</h2>
       <div className="flex gap-10">
         <Circle />

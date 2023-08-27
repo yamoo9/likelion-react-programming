@@ -24,10 +24,12 @@ import ProductNew from './pages/ProductNew';
 import Products from './pages/Products';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import ReactContextIssue from './learn/11-context-problem';
+import ZustandLibrary from './learn/12-zustand-library';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout displaySideMenu={false} />}>
+    <Route path="/" element={<RootLayout displaySideMenu={true} />}>
       <Route index element={<Home />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />
@@ -64,6 +66,8 @@ const router = createBrowserRouter(
       <Route path="learn/08" element={<FramerMotion_Animation />} />
       <Route path="learn/09" element={<ComponentPropTypes />} />
       <Route path="learn/10" element={<LocalStorage />} />
+      <Route path="learn/11" element={<ReactContextIssue />} />
+      <Route path="learn/12" element={<ZustandLibrary />} />
     </Route>
   )
 );

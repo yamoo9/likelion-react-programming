@@ -1,12 +1,16 @@
 import { gsap } from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function GSAP_Animation() {
   return (
     <>
+      <Helmet>
+        <title>GSAP Animation - Learn</title>
+      </Helmet>
       <h2>컴포넌트 내부의 DOM 요소를 직접 참조하는 Refs</h2>
       <p className="mb-10">원에 마우스를 올려보세요.</p>
-      
+
       <div className="flex gap-10">
         <Circle />
         <Circle />
@@ -40,7 +44,7 @@ function Circle() {
 
   // 이펙트 영역
   useLayoutEffect(() => {
-    // (3-1) 사이드 이펙트 처리가 가능한 구간에서 
+    // (3-1) 사이드 이펙트 처리가 가능한 구간에서
     // Refs 객체의 current 속성에 할당된 DOM 요소 ( = JSX 요소 → 실제 DOM 마운트된 요소)
     const { current: circleElement } = circleRef;
 

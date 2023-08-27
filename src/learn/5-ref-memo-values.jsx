@@ -4,8 +4,8 @@
 // 훅!!
 // [only function] React.useRef
 
-import { useState, useRef } from "react";
-
+import { useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function RefExampleMemoValues() {
   // 상태
@@ -20,10 +20,16 @@ function RefExampleMemoValues() {
   // 지역 변수
   let num = 100;
 
-  console.log('[렌더링 or 리-렌더링] 컴포넌트 내부에서의 num 지역 변수 값:', num);
+  console.log(
+    '[렌더링 or 리-렌더링] 컴포넌트 내부에서의 num 지역 변수 값:',
+    num
+  );
 
   return (
     <>
+      <Helmet>
+        <title>React Refs. memoization value - Learn</title>
+      </Helmet>
       <h2>값을 기억하기 위한 Refs</h2>
 
       <p>
@@ -47,7 +53,7 @@ function RefExampleMemoValues() {
       <button
         type="button"
         onClick={() => {
-          console.log('stepRef 값 변경(mutation)\n', stepRef.current += 100);
+          console.log('stepRef 값 변경(mutation)\n', (stepRef.current += 100));
         }}
         className="mr-5"
       >
@@ -57,7 +63,7 @@ function RefExampleMemoValues() {
       <button
         type="button"
         onClick={() => {
-          renderTrigger((state) => state + 1)
+          renderTrigger((state) => state + 1);
         }}
       >
         렌더 트리거
