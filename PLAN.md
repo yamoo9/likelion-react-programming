@@ -41,6 +41,7 @@
 
 ## PocketBase 관계 확장
 
+- [ ] 관계형 데이터베이스란? ([참고](https://cloud.google.com/learn/what-is-a-relational-database?hl=ko))
 - [ ] 데이터 관계 확장 요청(Expand Request)
 - [ ] 데이터 간 관계 설정 방법 실습
 
