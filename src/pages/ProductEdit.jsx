@@ -30,10 +30,6 @@ function ProductEdit() {
   const deleteProduct = useDeleteProduct();
   const updateProduct = useUpdateProduct();
 
-  // useEffect(() => {
-  //   console.log(formState);
-  // }, [formState])
-
   useEffect(() => {
     if (!isLoading && data) {
       setFormState({

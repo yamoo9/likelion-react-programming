@@ -5,24 +5,6 @@ import { getPbImageURL, numberWithComma } from '@/utils';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-// import { useProducts } from '@/api/useProducts';
-// import { useEffect } from 'react';
-// const { status, data: sdkData, getProductList } = useProducts();
-
-// useEffect(() => {
-//   getProductList()
-//     .then(() => {
-//       console.log(status)
-//       console.log(sdkData)
-//     })
-//     .catch(() => {
-//       // console.log(status)
-//     })
-// }, []);
-
-// data null 속성 가질 수 없음
-// data { ..., items: [] } PB에서 전달된 객체
-
 function Products() {
   useDocumentTitle('제품 목록');
   const { isLoading, data } = useProductList();
