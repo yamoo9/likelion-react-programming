@@ -1,11 +1,29 @@
 import { useListStore } from '@/store/list';
+import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 function ZustandLibrary() {
+  const itemRef = useRef(null);
+
+  // 상태
   const list = useListStore(
-    /* 선택하는 기능 selector function : 기억한다. memoization : 성능 향상 */ 
+    /* 선택하는 기능 selector function : 기억한다. memoization : 성능 향상 */
     (state) => state.list
   );
+
+  // 액션
+  const addItem = useListStore((state) => state.addItem);
+  const deleteItem = useListStore((state) => state.deleteItem);
+
+  const handleAddItem = () => {
+    const newItemTitle = itemRef.current.value;
+    addItem(newItemTitle);
+    itemRef.current.value = '';
+  };
+
+  const handleDeleteItem = (deleteId) => {
+    deleteItem(deleteId);
+  };
 
   return (
     <>
@@ -79,15 +97,48 @@ function ZustandLibrary() {
         </ul>
       </details>
 
-      <ul className='my-8'>
-        {
-          list?.map(item => (
-            <li key={item.id}>{item.title}</li>
-          ))
-        }
-      </ul>
+      <AddItemControl />
+      <ItemList />
     </>
   );
 }
 
 export default ZustandLibrary;
+
+function AddItemControl() {
+  return (
+    <div className="mt-5">
+      <input
+        type="text"
+        ref={itemRef}
+        aria-label="학습 주제 추가"
+        placeholder="예) Zustand 발음 10번 하기"
+        className="py-1 px-2 border-b border-b-slate-400 mr-2"
+      />
+      <button type="button" onClick={handleAddItem}>
+        추가
+      </button>
+    </div>
+  );
+}
+
+function ItemList() {
+  return (
+    <ul className="my-8">
+      {list?.map((item) => (
+        <Item key={item.id} />
+      ))}
+    </ul>
+  );
+}
+
+function Item() {
+  return (
+    <li>
+      {item.title}{' '}
+      <button type="button" onClick={() => handleDeleteItem(item.id)}>
+        삭제
+      </button>
+    </li>
+  );
+}
