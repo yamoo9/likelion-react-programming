@@ -3,6 +3,7 @@ import { useListStore } from '@/store/list';
 import { string } from 'prop-types';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import Logo from './partials/Logo';
 
 function ZustandLibrary() {
   return (
@@ -12,7 +13,7 @@ function ZustandLibrary() {
       </Helmet>
       <h2 className="headline text-sky-500">Zustand 라이브러리 활용</h2>
 
-      <details>
+      <details className="mb-10">
         <summary>Zustand 발음 어떻게 해야할까요?</summary>
 
         <p className="mt-4 pl-4 leading-normal text-sm">
@@ -78,19 +79,32 @@ function ZustandLibrary() {
       </details>
 
       <DisplayCount />
-      <AddItemControl />
-      <ItemList />
+      <div className="wrapper">
+        <AddItemControl />
+        <ItemList />
+      </div>
     </>
   );
 }
 
 export default ZustandLibrary;
 
+/* -------------------------------------------------------------------------- */
+
 function DisplayCount() {
   const count = useCountStore((state) => state.count);
 
-  return <output>{count}</output>;
+  return (
+    <header className="header">
+      <h1>
+        <Logo />
+      </h1>
+      <output className="output">{count}</output>
+    </header>
+  );
 }
+
+/* -------------------------------------------------------------------------- */
 
 function AddItemControl() {
   const itemRef = useRef(null);
@@ -103,32 +117,38 @@ function AddItemControl() {
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 flex gap-2">
       <input
         type="text"
         ref={itemRef}
         aria-label="학습 주제 추가"
         placeholder="예) Zustand 발음 10번 하기"
-        className="py-1 px-2 border-b border-b-slate-400 mr-2"
+        className="flex-1 py-1 px-2 border-b border-b-slate-400 mr-2 min-w-[200px] text-sky-600 outline-none focus:border-b-sky-600"
       />
-      <button type="button" onClick={handleAddItem}>
+      <button type="button" className="button" onClick={handleAddItem}>
         추가
       </button>
     </div>
   );
 }
 
+/* -------------------------------------------------------------------------- */
+
 function ItemList() {
   const list = useListStore((state) => state.list);
 
   return (
-    <ul className="my-8">
-      {list?.map((item) => (
-        <Item key={item.id} id={item.id} />
-      ))}
+    <ul className={`my-5 list ${list.length === 0 ? 'empty' : ''}`}>
+      {list.length > 0 ? (
+        list?.map((item) => <Item key={item.id} id={item.id} />)
+      ) : (
+        <li>표시할 항목이 없습니다.</li>
+      )}
     </ul>
   );
 }
+
+/* -------------------------------------------------------------------------- */
 
 function Item({ id }) {
   const item = useListStore((state) =>
@@ -142,7 +162,11 @@ function Item({ id }) {
   return (
     <li>
       {item.title}{' '}
-      <button type="button" onClick={() => handleDeleteItem(item.id)}>
+      <button
+        type="button"
+        className="button"
+        onClick={() => handleDeleteItem(item.id)}
+      >
         삭제
       </button>
     </li>
