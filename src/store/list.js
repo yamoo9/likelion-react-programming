@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 
 export const useListStore = create((set) => ({
-  // Query
   list: [
     {
       id: crypto.randomUUID(),
@@ -9,7 +8,6 @@ export const useListStore = create((set) => ({
     },
   ],
 
-  // Mutation
   addItem: (newItemTitle) =>
     set((state) => ({
       list: [

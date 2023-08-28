@@ -1,3 +1,4 @@
+import { useCountStore } from '@/store/count';
 import { useListStore } from '@/store/list';
 import { string } from 'prop-types';
 import { useRef } from 'react';
@@ -76,6 +77,7 @@ function ZustandLibrary() {
         </ul>
       </details>
 
+      <DisplayCount />
       <AddItemControl />
       <ItemList />
     </>
@@ -83,6 +85,12 @@ function ZustandLibrary() {
 }
 
 export default ZustandLibrary;
+
+function DisplayCount() {
+  const count = useCountStore((state) => state.count);
+
+  return <output>{count}</output>;
+}
 
 function AddItemControl() {
   const itemRef = useRef(null);
