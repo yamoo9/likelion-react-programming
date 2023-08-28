@@ -3,10 +3,16 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import ProductEdit from './pages/ProductEdit';
+import ProductNew from './pages/ProductNew';
+import Products from './pages/Products';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import ProtectRoute from './components/ProtectRoute';
 import RootLayout from './layout/RootLayout';
 import PassingProps from './learn/1-passing-props';
-import LocalStorage from './learn/10-local-storage';
 import LiftingStateUp from './learn/2-lifting-state-up';
 import PropsDrillingIssue from './learn/3-props-drilling-issue';
 import ReactContextAPI1 from './learn/4-1-react-context-api';
@@ -17,19 +23,14 @@ import GSAP_Animation from './learn/7-1-ref-gsap-animation';
 import GSAP_Context from './learn/7-2-ref-gsap-context';
 import FramerMotion_Animation from './learn/8-framer-motion';
 import ComponentPropTypes from './learn/9-component-prop-types';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import ProductEdit from './pages/ProductEdit';
-import ProductNew from './pages/ProductNew';
-import Products from './pages/Products';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import LocalStorage from './learn/10-local-storage';
 import ReactContextIssue from './learn/11-context-problem';
 import ZustandLibrary from './learn/12-zustand-library';
+import TanstackQueryLibrary from './learn/13-tanstack-query';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout displaySideMenu={!true} />}>
+    <Route path="/" element={<RootLayout displaySideMenu={true} />}>
       <Route index element={<Home />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />
@@ -68,6 +69,7 @@ const router = createBrowserRouter(
       <Route path="learn/10" element={<LocalStorage />} />
       <Route path="learn/11" element={<ReactContextIssue />} />
       <Route path="learn/12" element={<ZustandLibrary />} />
+      <Route path="learn/13" element={<TanstackQueryLibrary />} />
     </Route>
   )
 );

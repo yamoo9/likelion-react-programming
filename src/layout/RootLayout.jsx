@@ -109,6 +109,11 @@ function SideMenu() {
             Zustand 라이브러리
           </Link>
         </li>
+        <li>
+          <Link to="/learn/13" className="hover:text-slate-950">
+            Tanstack Query 라이브러리
+          </Link>
+        </li>
       </ul>
     </nav>
   );
