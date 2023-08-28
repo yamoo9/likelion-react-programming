@@ -41,8 +41,69 @@
 ## 성능 개선
 
 - [ ] [코드 분할 (Code Split)](https://ko.legacy.reactjs.org/docs/code-splitting.html#bundling)
+- [ ] [이미지 최적화 (Optimization Images)](https://www.npmjs.com/package/@vheemstra/vite-plugin-imagemin)
 - [ ] [프로덕션 버전으로 빌드(Build for Production)](https://ko.vitejs.dev/guide/build.html)
 - [ ] [멋사 4기, 성능 개선 사례](https://github.com/yamoo9/likelion-FEQA/issues/286#issuecomment-1504926019) ( [BEFORE](https://github.com/yamoo9/likelion-FEQA/files/11183331/POTATO-MARKET-main.zip) → [AFTER](https://github.com/yamoo9/likelion-FEQA/files/11209558/POTATO-MARKET-review-by-yamoo9.zip) )
+
+<details>
+  <summary>Vite 성능 최적화 구성 (참고)</summary>
+  <br />
+
+  Vite 이미지 최적화 플러그인 패키지를 설치합니다.
+
+  ```bash
+  pnpm add -D @vheemstra/vite-plugin-imagemin imagemin-{gifsicle,mozjpeg,pngquant,svgo,webp}
+  ```
+
+  Vite 구성 파일을 열어 최적화 구성을 추가합니다.
+
+  ```js
+  import * as path from "node:path";
+  import react from "@vitejs/plugin-react";
+  import { defineConfig, splitVendorChunkPlugin } from "vite";
+  import viteImagemin from "@vheemstra/vite-plugin-imagemin";
+  import imageminGifSicle from "imagemin-gifsicle";
+  import imageminMozjpeg from "imagemin-mozjpeg";
+  import imageminPngQuant from "imagemin-pngquant";
+  import imageminSvgo from "imagemin-svgo";
+  import imageminWebp from "imagemin-webp";
+
+  export default defineConfig({
+    // ...
+    plugins: [
+      react(),
+      // 청크(chunk) 파일 생성 플러그인 구성
+      splitVendorChunkPlugin(),
+      // 이미지 최적화 플러그인 구성
+      viteImagemin({
+        plugins: {
+          jpg: imageminMozjpeg(),
+          png: imageminPngQuant(),
+          gif: imageminGifSicle(),
+          svg: imageminSvgo(),
+        },
+        makeWebp: {
+          plugins: {
+            jpg: imageminWebp(),
+            png: imageminWebp(),
+          },
+        },
+      }),
+    ],
+    // 빌드 시, 청크 파일 생성 매뉴얼 구성
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            react: ["react", "react-dom"],
+            reactRouter: ["react-router", "react-router-dom"],
+          },
+        },
+      },
+    },
+  });  
+  ```
+</details>
 
 
 ## 배포
