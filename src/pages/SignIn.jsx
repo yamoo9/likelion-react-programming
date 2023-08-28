@@ -1,4 +1,5 @@
 import pb from '@/api/pocketbase';
+import { FormInput } from '@/components';
 import { useAuth } from '@/contexts/Auth';
 import debounce from '@/utils/debounce';
 import { useState } from 'react';
@@ -55,44 +56,21 @@ function SignIn() {
           onSubmit={handleSignIn}
           className="flex flex-col gap-2 items-center"
         >
-          <div className="flex flex-col gap-2 w-full">
-            <label
-              htmlFor="email"
-              className="dark:text-zinc-500 dark:hover:text-zinc-300"
-            >
-              이메일
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              defaultValue={formState.email}
-              onChange={handleInput}
-              className="
-              border border-zinc-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2
-              dark:bg-black dark:border-zinc-300/40 dark:placeholder:text-zinc-600 dark:text-sky-400 dark:focus:ring-1 dark:focus:ring-sky-400 dark:focus:ring-offset-1
-            "
-            />
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <label
-              htmlFor="password"
-              className="dark:text-zinc-500 dark:hover:text-zinc-300"
-            >
-              패스워드
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              defaultValue={formState.password}
-              onChange={handleInput}
-              className="
-              border border-zinc-300 py-1.5 px-4 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2
-              dark:bg-black dark:border-zinc-300/40 dark:placeholder:text-zinc-600 dark:text-sky-400 dark:focus:ring-1 dark:focus:ring-sky-400 dark:focus:ring-offset-1
-            "
-            />
-          </div>
+          <FormInput
+            type="email"
+            label="이메일"
+            name="email"
+            defaultValue={formState.email}
+            onChange={handleInput}
+          />
+          <FormInput
+            type="password"
+            label="패스워드"
+            name="password"
+            defaultValue={formState.password}
+            onChange={handleInput}
+          />
+
           <div className="flex gap-2 mt-5">
             <button
               type="submit"

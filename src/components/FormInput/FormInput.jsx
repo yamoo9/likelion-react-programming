@@ -2,14 +2,12 @@ import { useId } from 'react';
 import { oneOf, string } from 'prop-types';
 import S from './FormInput.module.css';
 
-function FormInput({ type = 'text', name = null, label, ...restProps }) {
+export function FormInput({ type = 'text', name = null, label, ...restProps }) {
   const id = useId();
+
   return (
-    <div className="flex flex-col gap-2 w-full">
-      <label
-        htmlFor={id}
-        className="dark:text-zinc-500 dark:hover:text-zinc-300"
-      >
+    <div className={S.wrapper}>
+      <label htmlFor={id} className={S.label}>
         {label}
       </label>
       <input
@@ -24,7 +22,7 @@ function FormInput({ type = 'text', name = null, label, ...restProps }) {
 }
 
 FormInput.propTypes = {
-  type: oneOf(['text', 'number', 'email', 'search']),
+  type: oneOf(['text', 'password', 'number', 'email', 'search']),
   name: string.isRequired,
   label: string.isRequired,
 };

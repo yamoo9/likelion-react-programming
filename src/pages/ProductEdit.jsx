@@ -69,8 +69,6 @@ function ProductEdit() {
     formData.append('color', colorValue);
     formData.append('price', priceValue);
 
-    console.log(photoValue);
-
     if (photoValue.length > 0) {
       formData.append('photo', photoValue[0]);
     }
