@@ -1,30 +1,9 @@
 import { useListStore } from '@/store/list';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { shape, string } from 'prop-types';
 
 function ZustandLibrary() {
-  const itemRef = useRef(null);
-
-  // 상태
-  const list = useListStore(
-    /* 선택하는 기능 selector function : 기억한다. memoization : 성능 향상 */
-    (state) => state.list
-  );
-
-  // 액션
-  const addItem = useListStore((state) => state.addItem);
-  const deleteItem = useListStore((state) => state.deleteItem);
-
-  const handleAddItem = () => {
-    const newItemTitle = itemRef.current.value;
-    addItem(newItemTitle);
-    itemRef.current.value = '';
-  };
-
-  const handleDeleteItem = (deleteId) => {
-    deleteItem(deleteId);
-  };
-
   return (
     <>
       <Helmet>
@@ -106,6 +85,15 @@ function ZustandLibrary() {
 export default ZustandLibrary;
 
 function AddItemControl() {
+  const itemRef = useRef(null);
+  const addItem = useListStore((state) => state.addItem);
+
+  const handleAddItem = () => {
+    const newItemTitle = itemRef.current.value;
+    addItem(newItemTitle);
+    itemRef.current.value = '';
+  };
+
   return (
     <div className="mt-5">
       <input
@@ -123,16 +111,23 @@ function AddItemControl() {
 }
 
 function ItemList() {
+  const list = useListStore((state) => state.list);
+
   return (
     <ul className="my-8">
       {list?.map((item) => (
-        <Item key={item.id} />
+        <Item key={item.id} item={item} />
       ))}
     </ul>
   );
 }
 
-function Item() {
+function Item({ item }) {
+  const deleteItem = useListStore((state) => state.deleteItem);
+  const handleDeleteItem = (deleteId) => {
+    deleteItem(deleteId);
+  };
+
   return (
     <li>
       {item.title}{' '}
@@ -142,3 +137,10 @@ function Item() {
     </li>
   );
 }
+
+Item.propTypes = {
+  item: shape({
+    id: string.isRequired,
+    title: string.isRequired,
+  }),
+};
