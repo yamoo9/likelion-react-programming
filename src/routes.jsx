@@ -29,6 +29,7 @@ import ZustandLibrary from './learn/12-zustand-library';
 import DataFetchAndUX from './learn/13-data-fetch-and-ux';
 import TanStackQueryLibrary from './learn/14-tanstack-query';
 import PaginationQuery from './learn/15-pagination-query';
+import InfineteQuery from './learn/16-infinite-query';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -74,6 +75,7 @@ const router = createBrowserRouter(
       <Route path="learn/13" element={<DataFetchAndUX />} />
       <Route path="learn/14" element={<TanStackQueryLibrary />} />
       <Route path="learn/15" element={<PaginationQuery />} />
+      <Route path="learn/16" element={<InfineteQuery />} />
     </Route>
   )
 );

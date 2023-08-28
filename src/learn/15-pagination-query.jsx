@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 function PaginationQuery() {
   const totalPageRef = useRef(0);
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(3);
+  const [perPage, setPerPage] = useState(2);
 
   const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);

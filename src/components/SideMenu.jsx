@@ -76,6 +76,11 @@ const menu = [
     title: '페이지네이션 쿼리',
     href: '/learn/15',
   },
+  {
+    id: crypto.randomUUID(),
+    title: '인피니트 쿼리',
+    href: '/learn/16',
+  },
 ];
 
 function SideMenu() {
