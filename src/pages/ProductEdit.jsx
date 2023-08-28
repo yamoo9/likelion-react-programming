@@ -36,7 +36,9 @@ function ProductEdit() {
           { image: photoUrl, label: photoUrl },
         ]);
       } catch (error) {
-        console.error(error);
+        if (!(error in DOMException)) {
+          console.error();
+        }
       }
     }
 

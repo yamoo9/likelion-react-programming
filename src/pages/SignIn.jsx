@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function SignIn() {
-  const { state } = useLocation();
+  const { state } = useLocation(); // location { pathname, search, hash, state = {  } }
   const navigate = useNavigate();
   const { isAuth } = useAuth();
 
