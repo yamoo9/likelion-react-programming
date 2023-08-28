@@ -14,6 +14,12 @@
 - [ ] [Zustand 개발 도구 구성](https://www.notion.so/euid/Zustand-4621b0add719415d93546e7b275b46a4?pvs=4#bd049af8cc114fee9b79fe77d04e085c) / [Redux 개발자 도구](https://www.notion.so/euid/Redux-6421f508da7f4067b36ed1bc1ca13163)
 - [ ] [persist 미들웨어](https://www.notion.so/euid/Persist-a1bd4094cb004fce951fbe7c049e1ab7) / [스토리지에 데이터 유지](https://www.notion.so/euid/4ba0753a7a534860882afa5e49f5954a)
 
+### Zustand 실습
+
+- [ ] 사이드 메뉴 표시/감춤 상태를 앱에서 관리
+- [ ] 앱 상태인 테마 관리 방법을 Context → Zustand로 변경
+- [ ] 앱 상태인 인증 관리 방법을 Context → Zustand로 변경
+
 
 ## 서버 상태 관리
 
