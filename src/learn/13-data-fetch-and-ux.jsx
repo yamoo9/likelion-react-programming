@@ -43,13 +43,44 @@ function DataFetchAndUX() {
   }
 
   return (
-    <>
+    <div className="container mx-auto">
       <Helmet>
-        <title>@tanstack/query - Learn</title>
+        <title>Data Fetcing & User eXperience - Learn</title>
       </Helmet>
       <h2 className="headline text-sky-500">
-        Tanstack(React) Query 라이브러리 활용
+        데이터 가져오기 &amp; 사용자 경험(UX)
       </h2>
+      <p className="mb-4 text-slate-600">
+        사용자 입장에서 과제의 데이터 가져오기 경험에 대해 이야기 해봅시다.
+      </p>
+      <ul className="flex flex-col gap-1">
+        <li>
+          <a
+            className="text-slate-500 hover:text-slate-900"
+            href="https://life-drama.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            🎥 인생 드라마
+          </a>
+        </li>
+        <li>
+          <a
+            className="text-slate-500 hover:text-slate-900"
+            href="https://kakaogoods.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            😺 세숑 &amp; 모찌
+          </a>
+        </li>
+      </ul>
+      <hr className="my-4" />
+      <p className="mb-4 text-slate-600">
+        한 번 가져온 서버의 데이터를 캐싱(cache)한다면?
+        <br />
+        사용자 경험이 향상될 것입니다. 😃
+      </p>
       <ul className="grid grid-cols-3 gap-2">
         {data?.items?.map((item) => {
           console.log(item);
@@ -69,7 +100,7 @@ function DataFetchAndUX() {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 
