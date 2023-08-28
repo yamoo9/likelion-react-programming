@@ -28,7 +28,7 @@
 
 ## 인증 
 
-- [ ] `useStorage` 커스텀 훅 재구성(re-design)
+- [x] `useStorage` 커스텀 훅 리팩터링
 
 ## 라우팅
 
