@@ -106,12 +106,17 @@ function SideMenu() {
         </li>
         <li>
           <Link to="/learn/12" className="hover:text-slate-950">
-            Zustand 라이브러리
+            앱 상태 공유 (with Zustand)
           </Link>
         </li>
         <li>
           <Link to="/learn/13" className="hover:text-slate-950">
-            Tanstack Query 라이브러리
+            데이터 가져오기 &amp; 사용자 경험
+          </Link>
+        </li>
+        <li>
+          <Link to="/learn/14" className="hover:text-slate-950">
+            Tanstack Query 활용 (UX ↑)
           </Link>
         </li>
       </ul>

@@ -26,7 +26,8 @@ import ComponentPropTypes from './learn/9-component-prop-types';
 import LocalStorage from './learn/10-local-storage';
 import ReactContextIssue from './learn/11-context-problem';
 import ZustandLibrary from './learn/12-zustand-library';
-import TanstackQueryLibrary from './learn/13-tanstack-query';
+import DataFetchAndUX from './learn/13-data-fetch-and-ux';
+import TanStackQueryLibrary from './learn/14-tanstack-query';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -69,7 +70,8 @@ const router = createBrowserRouter(
       <Route path="learn/10" element={<LocalStorage />} />
       <Route path="learn/11" element={<ReactContextIssue />} />
       <Route path="learn/12" element={<ZustandLibrary />} />
-      <Route path="learn/13" element={<TanstackQueryLibrary />} />
+      <Route path="learn/13" element={<DataFetchAndUX />} />
+      <Route path="learn/14" element={<TanStackQueryLibrary />} />
     </Route>
   )
 );
