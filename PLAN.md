@@ -19,6 +19,28 @@
 - [ ] 사이드 메뉴 표시/감춤 상태를 앱에서 관리 (with Zustand)
 - [ ] 인증(authentication) 상태 방법을 Zustand 방식으로 변경 (이전 방식과 비교)
 - [ ] 테마(theme) 상태 방법을 Zustand 방식으로 변경 (이전 방식과 비교)
+- [ ] 미들웨어 구성으로 손쉽게 상태 관리 (create ← [immer](https://immerjs.github.io/immer/) ← [devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko))
+- [ ] [Ramda](https://ramdajs.com/) 라이브러리를 활용해 미들웨어가 포함된 createStore 유틸리티 작성<br /><details>
+  <summary>createStore 유틸리티</summary>
+
+  ```js
+  import pipe from 'ramda/es/pipe';
+  import { produce } from 'immer';
+  import { create } from 'zustand';
+  import { devtools } from 'zustand/middleware';
+  
+  // immer 미들웨어
+  const immer = (config) => (set, get, api) => 
+    config((fn) => set(produce(fn)), get, api);
+
+  // createStore 유틸리티
+  export const createStore = pipe(
+    devtools,
+    immer,
+    create
+  );
+  ```
+</details>
 
 
 ## 서버 상태 관리
