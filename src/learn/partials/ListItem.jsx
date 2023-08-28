@@ -3,7 +3,7 @@ import { DemoAppContext } from '../11-context-problem';
 import { shape, string } from 'prop-types';
 
 function ListItem({ item }) {
-  const { list, count } = useContext(DemoAppContext);
+  const { list, count } = useContext(DemoAppContext)
 
   const handleDeleteItem = (id) => () => {
     list.deleteItem(id);

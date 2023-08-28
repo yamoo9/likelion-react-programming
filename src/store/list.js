@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 // store (define state & action)
-const listStore = () => {
+const listStore = (set) => {
   // return store's state & actions
   return {
     // state
@@ -12,6 +12,19 @@ const listStore = () => {
       },
     ],
     // actions
+    addItem: (newItemTitle) => {
+      return set((state) => {
+        return {
+          list: [
+            ...state.list,
+            {
+              id: crypto.randomUUID(),
+              title: newItemTitle
+            }
+          ]
+        }
+      })
+    }
   };
 };
 

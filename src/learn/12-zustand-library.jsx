@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 function ZustandLibrary() {
   const list = useListStore(
-    /* selector function */ 
+    /* 선택하는 기능 selector function : 기억한다. memoization : 성능 향상 */ 
     (state) => state.list
   );
 
@@ -79,7 +79,7 @@ function ZustandLibrary() {
         </ul>
       </details>
 
-      <ul>
+      <ul className='my-8'>
         {
           list?.map(item => (
             <li key={item.id}>{item.title}</li>
