@@ -1,3 +1,4 @@
 .headline {
-  @apply my-5 text-2xl font-medium text-blue-950 text-center dark:text-sky-500/90;
+  @apply my-5;
+  @apply text-2xl font-medium text-blue-950 text-center dark:text-sky-500/90;
 }
