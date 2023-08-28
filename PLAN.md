@@ -23,6 +23,7 @@
 - [ ] [Ramda](https://ramdajs.com/) 라이브러리를 활용해 미들웨어가 포함된 createStore 유틸리티 작성<br /><details>
   <summary>createStore 유틸리티</summary>
 
+  Ramda 라이브러리 + Redux 개발 도구 + Immer 라이브러리를 활용한 유틸리티 함수 작성
   ```js
   import pipe from 'ramda/es/pipe';
   import { produce } from 'immer';
@@ -60,17 +61,21 @@
 - [ ] [뮤테이션 진행 중 혹은 오류 처리](https://www.notion.so/euid/Mytation-5ee4a531fb024aa79bb16bb9dafc88ee?pvs=4#e4bcffac48ff471ea85beee3d8e087a9) - [📘](https://tanstack.com/query/latest/docs/react/guides/mutations)
 - [ ] [옵티미스틱 업데이트](https://www.notion.so/euid/Mytation-5ee4a531fb024aa79bb16bb9dafc88ee?pvs=4#8989a2c9157b4567a2dfbf79be5ddb2a) - [📘](https://tanstack.com/query/latest/docs/react/guides/optimistic-updates)
 
+### 서버 상태 관리 실습
+
+- [ ] 서버 데이터 캐싱
+- [ ] 페이지네이션 쿼리
+- [ ] 인피니티 쿼리
+- [ ] 뮤테이션 → UI 업데이트
+
 ## 성능 개선
 
 - [ ] [코드 분할 (Code Split)](https://ko.legacy.reactjs.org/docs/code-splitting.html#bundling)
 - [ ] [이미지 최적화 (Optimization Images)](https://www.npmjs.com/package/@vheemstra/vite-plugin-imagemin)
 - [ ] [프로덕션 버전으로 빌드(Build for Production)](https://ko.vitejs.dev/guide/build.html)
-- [ ] [멋사 4기, 성능 개선 사례](https://github.com/yamoo9/likelion-FEQA/issues/286#issuecomment-1504926019) ( [BEFORE](https://github.com/yamoo9/likelion-FEQA/files/11183331/POTATO-MARKET-main.zip) → [AFTER](https://github.com/yamoo9/likelion-FEQA/files/11209558/POTATO-MARKET-review-by-yamoo9.zip) )
-
-<details>
+- [ ] [멋사 4기, 성능 개선 사례](https://github.com/yamoo9/likelion-FEQA/issues/286#issuecomment-1504926019) ( [BEFORE](https://github.com/yamoo9/likelion-FEQA/files/11183331/POTATO-MARKET-main.zip) → [AFTER](https://github.com/yamoo9/likelion-FEQA/files/11209558/POTATO-MARKET-review-by-yamoo9.zip) )<br /><details>
   <summary>Vite 성능 최적화 구성 (참고)</summary>
-  <br />
-
+  
   Vite 이미지 최적화 플러그인 패키지를 설치합니다.
 
   ```bash
