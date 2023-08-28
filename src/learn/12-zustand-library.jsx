@@ -1,7 +1,7 @@
 import { useListStore } from '@/store/list';
+import { string } from 'prop-types';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { shape, string } from 'prop-types';
 
 function ZustandLibrary() {
   return (
@@ -116,13 +116,16 @@ function ItemList() {
   return (
     <ul className="my-8">
       {list?.map((item) => (
-        <Item key={item.id} item={item} />
+        <Item key={item.id} id={item.id} />
       ))}
     </ul>
   );
 }
 
-function Item({ item }) {
+function Item({ id }) {
+  const item = useListStore((state) =>
+    state.list.find((item) => item.id === id)
+  );
   const deleteItem = useListStore((state) => state.deleteItem);
   const handleDeleteItem = (deleteId) => {
     deleteItem(deleteId);
@@ -139,8 +142,5 @@ function Item({ item }) {
 }
 
 Item.propTypes = {
-  item: shape({
-    id: string.isRequired,
-    title: string.isRequired,
-  }),
+  id: string.isRequired,
 };
