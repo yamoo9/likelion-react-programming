@@ -1,5 +1,65 @@
 ###### [학습 요약](./SUMMARY.md) 보기
 
+# 8. 29(화)
+
+## 앱 상태 관리
+
+- [ ] [Zustand](https://docs.pmnd.rs/zustand) 라이브러리
+- [ ] [셀렉터 함수와 쉘로우](https://www.notion.so/euid/560cae85747a45aea181e86e62b131aa)
+- [ ] [비동기 액션](https://www.notion.so/euid/f002c79d9b32493bb925b6c25a7e42af)
+- [ ] [액션에서 상태 읽기](https://www.notion.so/euid/297cde9e53594c358586aba170d66414)
+- [ ] [미들웨어](https://www.notion.so/euid/Middleware-adae517594c241618e9d77d8d9d5a78d?pvs=4#658f112c0ded47d1a00200c19fdcaea5) / [커스텀 미들웨어 구성](https://www.notion.so/euid/bb54c1d8590a4db5b12da34573565bb6)
+- [ ] [Immer 미들웨어](https://www.notion.so/euid/Immer-70a57767fbbc48bdbda75baf981d99a9) / [Immer를 활용한 중첩도가 깊은 상태 변경](https://www.notion.so/euid/Immer-81d6c36501d34a39adc48d44fb457398)
+- [ ] [replace 플래그](https://www.notion.so/euid/d9c0b09db68c449894a0fdbeb0376a7f?pvs=4#50cc6e2619fb42ac9c0a6b0e3ac80ff5) / [상태 덮어쓰기 옵션](https://www.notion.so/euid/5cf69dd471964f24a11692b8ac77a8cc)
+- [ ] [Zustand 개발 도구 구성](https://www.notion.so/euid/Zustand-4621b0add719415d93546e7b275b46a4?pvs=4#bd049af8cc114fee9b79fe77d04e085c) / [Redux 개발자 도구](https://www.notion.so/euid/Redux-6421f508da7f4067b36ed1bc1ca13163)
+- [ ] [persist 미들웨어](https://www.notion.so/euid/Persist-a1bd4094cb004fce951fbe7c049e1ab7) / [스토리지에 데이터 유지](https://www.notion.so/euid/4ba0753a7a534860882afa5e49f5954a)
+
+
+## 서버 상태 관리
+
+- [ ] [TanStack Query](https://tanstack.com/query/latest) 라이브러리<br /><small>React Query에서 변경 됨. Vue, Solid JS, Svelte에서도 사용할 수 있기 때문.</small>
+- [ ] [TanStack Query를 사용하는 이유](https://www.notion.so/euid/React-Query-fcbfa56c81324a11ada4c09c6207109f?pvs=4#03fdf0215fd54fc9a6b9a764749bd6d1) - [📘](https://tanstack.com/query/latest/docs/react/overview)
+- [ ] [TanStack Query v4 설치 및 초기 구성](https://www.notion.so/euid/3c27750039434fbea8669f114c2db83f) - [📘](https://tanstack.com/query/latest/docs/react/installation)<br/><small>[v5](https://tanstack.com/query/v5/docs/react/overview) 공식 문서도 있지만, 현재 v4가 Latest 버전임.</small>
+- [ ] [TanStack Query 개발 도구](https://www.notion.so/euid/3c27750039434fbea8669f114c2db83f?pvs=4#584b2eaaa447462fa4ca160c805e7971) - [📘](https://tanstack.com/query/latest/docs/react/devtools)
+- [ ] [데이터 가져오기](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#17a8aafb10ce4cd7a39799c91c31aee2) / [로딩 및 오류 조건 처리](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#3e2bb360d64642fbb6078f76972e5ed0) - [📘](https://tanstack.com/query/latest/docs/react/guides/queries)
+- [ ] [만료 시간(Stale Time)이란?](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#13d480e11fc8473d9c6c99bb596b74b9) - [📘](https://tanstack.com/query/latest/docs/react/guides/important-defaults)
+- [ ] [모든 쿼리에 기본 옵션 적용](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#13d480e11fc8473d9c6c99bb596b74b9) - [📘](https://tanstack.com/query/latest/docs/react/reference/QueryClient)
+- [ ] [쿼리 별 옵션 설정](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#f70f39b314f44f2bbdcd6071e66cf350) - [📘](https://tanstack.com/query/latest/docs/react/reference/useQuery)
+- [ ] [페이지네이션 쿼리](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#9d86b658c6d34057bd3b19c1c0f41377) - [📘](https://tanstack.com/query/latest/docs/react/guides/paginated-queries)
+- [ ] [인피니티 쿼리](https://www.notion.so/euid/Query-30a62125b44243b6b1b8987552bacc3c?pvs=4#c945fe2e764e4f80b7e722676db446c9) - [📘](https://tanstack.com/query/latest/docs/react/guides/infinite-queries)
+- [ ] [뮤테이션이란?](https://www.notion.so/euid/Mytation-5ee4a531fb024aa79bb16bb9dafc88ee?pvs=4#2dc0740aceed4c3193432e99648ca532) - [📘](https://tanstack.com/query/latest/docs/react/guides/mutations)
+- [ ] [뮤테이션 → UI 업데이트](https://www.notion.so/euid/Mytation-5ee4a531fb024aa79bb16bb9dafc88ee?pvs=4#9cafc1e70e79421b925065ebe3a483b4) - [📘](https://tanstack.com/query/latest/docs/react/reference/useQueryClient) / [📘](https://tanstack.com/query/latest/docs/react/guides/updates-from-mutation-responses)
+- [ ] [뮤테이션 진행 중 혹은 오류 처리](https://www.notion.so/euid/Mytation-5ee4a531fb024aa79bb16bb9dafc88ee?pvs=4#e4bcffac48ff471ea85beee3d8e087a9) - [📘](https://tanstack.com/query/latest/docs/react/guides/mutations)
+- [ ] [옵티미스틱 업데이트](https://www.notion.so/euid/Mytation-5ee4a531fb024aa79bb16bb9dafc88ee?pvs=4#8989a2c9157b4567a2dfbf79be5ddb2a) - [📘](https://tanstack.com/query/latest/docs/react/guides/optimistic-updates)
+
+## 성능 개선
+
+- [ ] [코드 분할 (Code Split)](https://ko.legacy.reactjs.org/docs/code-splitting.html#bundling)
+- [ ] [프로덕션 버전으로 빌드(Build for Production)](https://ko.vitejs.dev/guide/build.html)
+- [ ] [멋사 4기, 성능 개선 사례](https://github.com/yamoo9/likelion-FEQA/issues/286#issuecomment-1504926019) ( [BEFORE](https://github.com/yamoo9/likelion-FEQA/files/11183331/POTATO-MARKET-main.zip) → [AFTER](https://github.com/yamoo9/likelion-FEQA/files/11209558/POTATO-MARKET-review-by-yamoo9.zip) )
+
+
+## 배포
+
+- [ ] React 애플리케이션 배포 ([vercel](https://ko.vitejs.dev/guide/static-deploy.html#vercel))
+- [ ] PocketBase 데이터베이스 배포 ([pockethost.io](https://pockethost.io) / [Fly.io](https://fly.io/))
+
+
+## 풀스택 프레임워크
+
+- [ ] [Next.js](https://nextjs.org/) 프레임워크
+- [ ] [Next.js 소개](https://www.notion.so/euid/2a2b409709404d7dab77aefcac7ea144)
+- [ ] [Next.js 설치](https://www.notion.so/euid/bac3929223e047e1868233a92bd12759)
+- [ ] [Next.js 프로젝트 구조](https://www.notion.so/euid/95b8c3ba445545f2afd932bf84f4c7d7)
+- [ ] [앱 라우터(v13) vs. 페이지 라우터(v12)](https://nextjs.org/)
+- [ ] [앱 라우터를 사용한 라우팅](https://www.notion.so/euid/15824eb80fad4eef832c91067730ae0f)
+    - [ ] [폴더 및 파일 기반 라우팅 시스템](https://www.notion.so/euid/dd375a95636a468ab05b9ec0f3b727e2)
+    - [ ] [레이아웃 & 페이지](https://www.notion.so/euid/0575b86744834c21bf623a366ca49cc7)
+    - [ ] [내비게이션 & 링크](https://www.notion.so/euid/4b8feb28baa24203be743a2b5cb02da8)
+    - [ ] [다이내믹 라우트](https://www.notion.so/euid/4c7f5195de374b25876278babf61f9c2)
+- [ ] [Raect 서버 컴포넌트 vs. 클라이언트 컴포넌트](https://www.notion.so/euid/React-eabe527dcf5f4873a00c6c8c5fbe9a68)
+- [ ] [데이터 가져오기](https://www.notion.so/euid/cb5b6c2bb6144d3397454e1453b36026)
+
 # 8. 28(월)
 
 ## 디자인 & 애니메이션
@@ -56,25 +116,6 @@
 - [ ] 상품 추가(NEW)
 - [ ] 상품 수정(EDIT)
 - [ ] 상품 삭제(DELETE)
-
-## 앱 상태 관리
-
-- [ ] [Zustand](https://docs.pmnd.rs/zustand) 라이브러리
-
-## 서버 상태 관리
-
-- [ ] [TanStack Query](https://tanstack.com/query/latest) 라이브러리
-
-## 성능 개선
-
-- [ ] [코드 분할 (Code Split)](https://ko.legacy.reactjs.org/docs/code-splitting.html#bundling)
-- [ ] [프로덕션 버전으로 빌드(Build for Production)](https://ko.vitejs.dev/guide/build.html)
-- [ ] [멋사 4기, 성능 개선 사례](https://github.com/yamoo9/likelion-FEQA/issues/286#issuecomment-1504926019) ( [BEFORE](https://github.com/yamoo9/likelion-FEQA/files/11183331/POTATO-MARKET-main.zip) → [AFTER](https://github.com/yamoo9/likelion-FEQA/files/11209558/POTATO-MARKET-review-by-yamoo9.zip) )
-
-## 배포
-
-- [ ] PocketBase 데이터베이스 배포 ([pockethost.io](https://pockethost.io))
-- [ ] React 애플리케이션 배포 ([vercel](https://ko.vitejs.dev/guide/static-deploy.html#vercel))
 
 
 # 8. 25(금)
