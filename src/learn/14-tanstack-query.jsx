@@ -43,7 +43,7 @@ function TanStackQueryLibrary() {
   }
 
   return (
-    <>
+    <div className="container mx-auto">
       <Helmet>
         <title>@tanstack/query - Learn</title>
       </Helmet>
@@ -69,7 +69,7 @@ function TanStackQueryLibrary() {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 

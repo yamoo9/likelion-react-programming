@@ -28,6 +28,7 @@ import ReactContextIssue from './learn/11-context-problem';
 import ZustandLibrary from './learn/12-zustand-library';
 import DataFetchAndUX from './learn/13-data-fetch-and-ux';
 import TanStackQueryLibrary from './learn/14-tanstack-query';
+import PaginationQuery from './learn/15-pagination-query';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -72,6 +73,7 @@ const router = createBrowserRouter(
       <Route path="learn/12" element={<ZustandLibrary />} />
       <Route path="learn/13" element={<DataFetchAndUX />} />
       <Route path="learn/14" element={<TanStackQueryLibrary />} />
+      <Route path="learn/15" element={<PaginationQuery />} />
     </Route>
   )
 );
