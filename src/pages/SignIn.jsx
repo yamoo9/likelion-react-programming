@@ -1,5 +1,5 @@
 import pb from '@/api/pocketbase';
-import { FormInput } from '@/components';
+import { Button, FormInput } from '@/components';
 import { useAuth } from '@/contexts/Auth';
 import debounce from '@/utils/debounce';
 import { useState } from 'react';
@@ -22,12 +22,24 @@ function SignIn() {
     const { email, password } = formState;
 
     try {
-      await pb.collection('users').authWithPassword(email, password);
+      const response = await pb
+        .collection('users')
+        .authWithPassword(email, password);
+
+      console.log(response);
 
       if (!state) {
         navigate('/');
       } else {
-        navigate(state.wishLocationPath);
+        // 사용자가 원하는 경로로 접속 요청
+        // 로그인 유무 확인이 안되서 사용자를 로그인 페이지로 이동
+        // 로그인 페이지에서 사용자가 로그인 시도 (성공)
+        // 성공 (로그인 이력을 남기지 않도록 합니다.)
+        // console.log(state.wishLocationPath);
+        // 이슈 확인 결과: '/signin'이 나와서 이동 안한 것임!
+
+        const { wishLocationPath } = state;
+        navigate(wishLocationPath === '/signin' ? '/' : wishLocationPath);
       }
     } catch (error) {
       console.error(error);
@@ -71,26 +83,12 @@ function SignIn() {
             onChange={handleInput}
           />
 
-          <div className="flex gap-2 mt-5">
-            <button
-              type="submit"
-              className="
-                py-1 px-3.5 border-2 border-zinc-300 hover:border-zinc-400 rounded-full
-              dark:text-sky-400 dark:border-sky-400 dark:border-[1px] dark:hover:bg-sky-400 dark:hover:text-sky-50 dark:hover:border-sky-500
-              "
-            >
-              로그인
-            </button>
-            <button
-              type="reset"
-              className="
-                py-1 px-3.5 border-2 border-zinc-200 bg-zinc-200 hover:bg-zinc-300 hover:border-zinc-300 rounded-full
-                dark:bg-zinc-400 dark:border-zinc-400
-              "
-            >
+          <Button.Group>
+            <Button type="submit">로그인</Button>
+            <Button type="reset" secondary>
               취소
-            </button>
-          </div>
+            </Button>
+          </Button.Group>
         </form>
 
         <div className="flex justify-center mt-8 border-t border-slate-200 pt-8 dark:border-slate-200/30">
