@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GrandParent from './partials/GrandParent';
 import { Helmet } from 'react-helmet-async';
 
+// Props Drilling (Performance Issue)
 function ReactContextAPI() {
   const [color, setColor] = useState({
     fg: 'text-blue-50',

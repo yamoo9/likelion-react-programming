@@ -27,7 +27,12 @@ function DemoApp() {
 
   // -----------------------------------------------------------------
 
-  const [list, setList] = useState([]);
+  const [list, setList] = useState([
+    {
+      id: crypto.randomUUID(),
+      title: 'zustand를 배워볼까?',
+    },
+  ]);
 
   const addItem = useCallback((newItem) => {
     setList((list) => [

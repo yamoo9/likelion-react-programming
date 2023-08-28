@@ -1,7 +1,7 @@
 import debounce from '@/utils/debounce';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { string, func } from 'prop-types';
+import { string, func, shape } from 'prop-types';
 
 function PropsDrillingIssue() {
   // 상태
@@ -51,7 +51,10 @@ export function GrandParent({ color, onChangeColor }) {
 }
 
 GrandParent.propTypes = {
-  color: string,
+  color: shape({
+    fg: string,
+    bg: string,
+  }),
   onChangeColor: func,
 };
 
