@@ -4,18 +4,24 @@ import { string } from 'prop-types';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Logo from './partials/Logo';
-import { useCatsStore } from '@/store/cats';
+// import { useCatsStore } from '@/store/cats';
 
 function ZustandLibrary() {
-  const cats = useCatsStore(
-    /* 선택하는 함수(셀렉터: selector) */
-    (state) => state.cats
-  );
+  // const cats = useCatsStore(
+  //   /* 선택하는 함수(셀렉터: selector) */
+  //   (state) => state.cats
+  // );
 
-  const addCat = useCatsStore((state) => state.addCat);
-  const removeCat = useCatsStore((state) => state.removeCat);
+  // const addCat = useCatsStore((state) => state.addCat);
+  // const removeCat = useCatsStore((state) => state.removeCat);
 
-  console.log(cats); // 읽기
+  // console.log(cats); // 읽기
+
+  const { increment, decrement, reset } = useCountStore((state) => {
+    const { count, ...restActions } = state;
+    console.log(count);
+    return restActions;
+  });
 
   return (
     <>
@@ -24,7 +30,13 @@ function ZustandLibrary() {
       </Helmet>
       <h2 className="headline text-sky-500">Zustand 라이브러리 활용</h2>
 
-      <button
+      <div className="flex gap-6">
+        <button onClick={() => increment(10)}>+</button>
+        <button onClick={() => decrement(6)}>-</button>
+        <button onClick={reset}>reset</button>
+      </div>
+
+      {/* <button
         type="button"
         onClick={() =>
           addCat({
@@ -38,7 +50,7 @@ function ZustandLibrary() {
       </button>
       <button type="button" onClick={() => removeCat('더미')}>
         냥이 졸업
-      </button>
+      </button> */}
 
       <details className="mb-10">
         <summary>Zustand 발음 어떻게 해야할까요?</summary>
