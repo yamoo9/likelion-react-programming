@@ -1,36 +1,42 @@
+import { lazy } from 'react';
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import ProductEdit from './pages/ProductEdit';
-import ProductNew from './pages/ProductNew';
-import Products from './pages/Products';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import ProtectRoute from './components/ProtectRoute';
-import RootLayout from './layout/RootLayout';
-import PassingProps from './learn/1-passing-props';
-import LiftingStateUp from './learn/2-lifting-state-up';
-import PropsDrillingIssue from './learn/3-props-drilling-issue';
-import ReactContextAPI1 from './learn/4-1-react-context-api';
-import ReactContextAPI2 from './learn/4-2-seperation-react-context';
-import RefExampleMemoValues from './learn/5-ref-memo-values';
-import RefExampleReferencingDOM from './learn/6-ref-referencing-dom';
-import GSAP_Animation from './learn/7-1-ref-gsap-animation';
-import GSAP_Context from './learn/7-2-ref-gsap-context';
-import FramerMotion_Animation from './learn/8-framer-motion';
-import ComponentPropTypes from './learn/9-component-prop-types';
-import LocalStorage from './learn/10-local-storage';
-import ReactContextIssue from './learn/11-context-problem';
-import ZustandLibrary from './learn/12-zustand-library';
-import DataFetchAndUX from './learn/13-data-fetch-and-ux';
-import TanStackQueryLibrary from './learn/14-tanstack-query';
-import PaginationQuery from './learn/15-pagination-query';
-import InfineteQuery from './learn/16-infinite-query';
-import Assets from './pages/Assets';
+
+const Contact = lazy(() => import('./pages/Contact'));
+const Home = lazy(() => import('./pages/Home'));
+const ProductEdit = lazy(() => import('./pages/ProductEdit'));
+const ProductNew = lazy(() => import('./pages/ProductNew'));
+const Products = lazy(() => import('./pages/Products'));
+const SignIn = lazy(() => import('./pages/SignIn'));
+const SignUp = lazy(() => import('./pages/SignUp'));
+const ProtectRoute = lazy(() => import('./components/ProtectRoute'));
+const RootLayout = lazy(() => import('./layout/RootLayout'));
+const PassingProps = lazy(() => import('./learn/1-passing-props'));
+const LiftingStateUp = lazy(() => import('./learn/2-lifting-state-up'));
+const PropsDrillingIssue = lazy(() => import('./learn/3-props-drilling-issue'));
+const ReactContextAPI1 = lazy(() => import('./learn/4-1-react-context-api'));
+const ReactContextAPI2 = lazy(() =>
+  import('./learn/4-2-seperation-react-context')
+);
+const RefExampleMemoValues = lazy(() => import('./learn/5-ref-memo-values'));
+const RefExampleReferencingDOM = lazy(() =>
+  import('./learn/6-ref-referencing-dom')
+);
+const GSAP_Animation = lazy(() => import('./learn/7-1-ref-gsap-animation'));
+const GSAP_Context = lazy(() => import('./learn/7-2-ref-gsap-context'));
+const FramerMotion_Animation = lazy(() => import('./learn/8-framer-motion'));
+const ComponentPropTypes = lazy(() => import('./learn/9-component-prop-types'));
+const LocalStorage = lazy(() => import('./learn/10-local-storage'));
+const ReactContextIssue = lazy(() => import('./learn/11-context-problem'));
+const ZustandLibrary = lazy(() => import('./learn/12-zustand-library'));
+const DataFetchAndUX = lazy(() => import('./learn/13-data-fetch-and-ux'));
+const TanStackQueryLibrary = lazy(() => import('./learn/14-tanstack-query'));
+const PaginationQuery = lazy(() => import('./learn/15-pagination-query'));
+const InfineteQuery = lazy(() => import('./learn/16-infinite-query'));
+const Assets = lazy(() => import('./pages/Assets'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
