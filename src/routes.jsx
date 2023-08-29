@@ -33,7 +33,7 @@ import InfineteQuery from './learn/16-infinite-query';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout displaySideMenu={true} />}>
+    <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />

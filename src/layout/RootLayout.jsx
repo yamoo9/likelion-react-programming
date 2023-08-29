@@ -1,11 +1,13 @@
 import AnimatedOutlet from '@/components/AnimateOutlet';
 import AnimateTransition from '@/components/AnimateTransition';
 import SideMenu from '@/components/SideMenu';
-import { bool } from 'prop-types';
 import FooterBar from './FooterBar';
 import HeaderBar from './HeaderBar';
+import { useSideMenuStore } from '@/store/sideMenu';
 
-function RootLayout({ displaySideMenu = false }) {
+function RootLayout() {
+  const displaySideMenu = useSideMenuStore((state) => state.displaySideMenu);
+
   return (
     <div className="flex flex-col min-h-screen">
       <HeaderBar />
@@ -21,9 +23,5 @@ function RootLayout({ displaySideMenu = false }) {
     </div>
   );
 }
-
-RootLayout.propTypes = {
-  displaySideMenu: bool,
-};
 
 export default RootLayout;
