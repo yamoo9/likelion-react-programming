@@ -1,6 +1,6 @@
 import Spinner from '@/components/Spinner';
 import { numberWithComma } from '@/utils';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 
 async function fetchProducts() {
@@ -11,8 +11,6 @@ async function fetchProducts() {
 }
 
 function TanStackQueryLibrary() {
-  const queryClient = useQueryClient();
-
   const { isLoading, data, isError, error } = useQuery(
     ['products'],
     fetchProducts,
