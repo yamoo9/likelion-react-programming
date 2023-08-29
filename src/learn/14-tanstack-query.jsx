@@ -1,34 +1,33 @@
 import Spinner from '@/components/Spinner';
 import { numberWithComma } from '@/utils';
-import { useEffect, useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 
+async function fetchProducts() {
+  const response = await fetch(
+    `https://pb-demo-app.pockethost.io/api/collections/products/records`
+  );
+  return await response.json();
+}
+
 function TanStackQueryLibrary() {
-  const [isLoading, setIsLoading] = useState(null);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    setIsLoading(true);
-
-    async function fetchProductsData(page = 1, perPage = 50) {
-      try {
-        const response = await fetch(
-          `https://pb-demo-app.pockethost.io/api/collections/products/records?page=${page}&perPage=${perPage}`
-        );
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
+  const { isLoading, data, isError, error } = useQuery(
+    ['products'],
+    fetchProducts,
+    {
+      retry: 2,
+      // refetchOnWindowFocus: false,
+      // staleTime: 1000 * 60 * 3,
     }
+  );
 
-    fetchProductsData();
-  }, []);
-
-  const isError = !!error;
+  // const { isLoading, data, isError, error } = useQuery({
+  //   queryKey: ['products'],
+  //   queryFn: fetchProducts,
+  //   // staleTime: 1 * 1000 * 60 * 60 * 24 * 7,
+  // });
 
   if (isLoading) {
     return (
@@ -51,9 +50,8 @@ function TanStackQueryLibrary() {
         Tanstack(React) Query 라이브러리 활용
       </h2>
       <ul className="grid grid-cols-3 gap-2">
-        {data?.items?.map((item) => {
-          console.log(item);
-          return (
+        {data &&
+          data.items?.map((item) => (
             <li key={item.id} className="flex flex-col gap-1 my-4">
               <strong>{item.title}</strong>
               <img
@@ -66,8 +64,7 @@ function TanStackQueryLibrary() {
               />
               <span>{numberWithComma(item.price)}</span>
             </li>
-          );
-        })}
+          ))}
       </ul>
     </div>
   );
