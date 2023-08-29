@@ -1,15 +1,17 @@
 import pipe from 'ramda/es/pipe';
-import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
-import { immer } from "@/middlewares/immer";
+import { createWithEqualityFn } from 'zustand/traditional';
+import { devtools, persist } from 'zustand/middleware';
+import { immer } from '@/middlewares/immer';
+import { log } from '@/middlewares/log';
 
 const withPersist = (config) => persist(config, { name: 'app-store' });
 
 const createStore = pipe(
   devtools,
   immer,
+  log,
   withPersist,
-  create
+  createWithEqualityFn
 );
 
 export default createStore;

@@ -35,7 +35,7 @@ export const useListStore = create(
         ),
     })),
     {
-      name: 'app-store',
+      name: 'list-store',
     }
   )
 );

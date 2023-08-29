@@ -3,14 +3,24 @@ import { string } from 'prop-types';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Logo from './partials/Logo';
+import { useBearsStore } from '@/store/bears';
 
 function ZustandLibrary() {
-  
+  const bears = useBearsStore((state) => state.bears);
+  // const addBear = useBearsStore((state) => state.addBear);
+
   return (
     <>
       <Helmet>
         <title>Zustand Library - Learn</title>
       </Helmet>
+
+      <div>
+        {bears.map((bear) => (
+          <span key={bear.id}>{bear.name}</span>
+        ))}
+      </div>
+
       <h2 className="headline text-sky-500">Zustand 라이브러리 활용</h2>
       <details className="mb-10">
         <summary>Zustand 발음 어떻게 해야할까요?</summary>
