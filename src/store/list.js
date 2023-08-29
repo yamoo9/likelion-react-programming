@@ -4,7 +4,7 @@ export const useListStore = create((set) => ({
   list: [
     {
       id: crypto.randomUUID(),
-      title: 'Zustand는 츄~스탄트로 발음합니다.',
+      title: 'Zustand는 츄~슈탄트로 발음합니다.',
     },
   ],
 
