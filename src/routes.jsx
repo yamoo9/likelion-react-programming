@@ -30,6 +30,7 @@ import DataFetchAndUX from './learn/13-data-fetch-and-ux';
 import TanStackQueryLibrary from './learn/14-tanstack-query';
 import PaginationQuery from './learn/15-pagination-query';
 import InfineteQuery from './learn/16-infinite-query';
+import Assets from './pages/Assets';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="products" element={<Products />} />
+      <Route path="assets" element={<Assets />} />
       <Route
         path="product/new"
         element={

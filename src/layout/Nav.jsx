@@ -31,6 +31,9 @@ function Nav() {
           <Link href="/products">Products</Link>
         </li>
         <li>
+          <Link href="/assets">Assets</Link>
+        </li>
+        <li>
           <button type="button" className="uppercase" onClick={toggleSideMenu}>
             Toggler
           </button>
