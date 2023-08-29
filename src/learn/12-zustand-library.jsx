@@ -1,4 +1,3 @@
-import { useCountStore } from '@/store/count';
 import { useListStore } from '@/store/list';
 import { string } from 'prop-types';
 import { useRef } from 'react';

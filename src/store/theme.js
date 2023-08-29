@@ -13,7 +13,7 @@ const initialTheme = {
   },
 };
 
-export const useStore = create(
+export const useThemeStore = create(
   devtools((set) => ({
     theme: initialTheme,
 
