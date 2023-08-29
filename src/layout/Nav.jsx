@@ -1,10 +1,13 @@
 import { useAuth } from '@/contexts/Auth';
+import { useSideMenuStore } from '@/store/sideMenu';
 import { node, string } from 'prop-types';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 function Nav() {
   const { isAuth, signOut } = useAuth();
   const navigate = useNavigate();
+
+  const toggleSideMenu = useSideMenuStore((state) => state.toggleSideMenu);
 
   const handleSignOut = async () => {
     await signOut();
@@ -26,6 +29,11 @@ function Nav() {
         )}
         <li>
           <Link href="/products">Products</Link>
+        </li>
+        <li>
+          <button type="button" className="uppercase" onClick={toggleSideMenu}>
+            Toggler
+          </button>
         </li>
         {isAuth && (
           <button

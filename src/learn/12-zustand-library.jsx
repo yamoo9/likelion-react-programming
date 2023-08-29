@@ -4,54 +4,14 @@ import { string } from 'prop-types';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Logo from './partials/Logo';
-// import { useCatsStore } from '@/store/cats';
 
 function ZustandLibrary() {
-  // const cats = useCatsStore(
-  //   /* 선택하는 함수(셀렉터: selector) */
-  //   (state) => state.cats
-  // );
-
-  // const addCat = useCatsStore((state) => state.addCat);
-  // const removeCat = useCatsStore((state) => state.removeCat);
-
-  // console.log(cats); // 읽기
-
-  const { increment, decrement, reset } = useCountStore((state) => {
-    const { count, ...restActions } = state;
-    console.log(count);
-    return restActions;
-  });
-
   return (
     <>
       <Helmet>
         <title>Zustand Library - Learn</title>
       </Helmet>
       <h2 className="headline text-sky-500">Zustand 라이브러리 활용</h2>
-
-      <div className="flex gap-6">
-        <button onClick={() => increment(10)}>+</button>
-        <button onClick={() => decrement(6)}>-</button>
-        <button onClick={reset}>reset</button>
-      </div>
-
-      {/* <button
-        type="button"
-        onClick={() =>
-          addCat({
-            name: '히로',
-            age: 2,
-            gender: 'male',
-          })
-        }
-      >
-        냥이 모집
-      </button>
-      <button type="button" onClick={() => removeCat('더미')}>
-        냥이 졸업
-      </button> */}
-
       <details className="mb-10">
         <summary>Zustand 발음 어떻게 해야할까요?</summary>
 
@@ -131,14 +91,14 @@ export default ZustandLibrary;
 /* -------------------------------------------------------------------------- */
 
 function DisplayCount() {
-  const count = useCountStore((state) => state.count);
+  const list = useListStore((state) => state.list);
 
   return (
     <header className="header">
       <h1>
         <Logo />
       </h1>
-      <output className="output">{count}</output>
+      <output className="output">{list.length}</output>
     </header>
   );
 }
