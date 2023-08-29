@@ -1,6 +1,6 @@
-import { immer } from '@/middlewares/immer';
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { immer } from '@/middlewares/immer';
+import { devtools, persist } from 'zustand/middleware';
 
 const initialTheme = {
   currentMode: 'light',
@@ -15,43 +15,80 @@ const initialTheme = {
 };
 
 export const useStore = create(
-  immer(
-    devtools((set) => ({
-      theme: initialTheme,
+  persist(
+    immer(
+      devtools((set) => ({
+        theme: initialTheme,
 
-      changeLightTheme: () =>
-        set(
-          (state) => {
-            state.theme.currentMode = 'light';
+        changeLightTheme: () =>
+          set(
+            (state) => {
+              state.theme.currentMode = 'light';
+            },
+            false,
+            'theme/changeLight'
+          ),
+        changeDarkTheme: () =>
+          set(
+            (state) => {
+              state.theme.currentMode = 'dark';
+            },
+            false,
+            'theme/changeDark'
+          ),
+        switchMode: () =>
+          set(
+            (state) => {
+              const mode = state.theme.currentMode;
+              state.theme.currentMode = mode.includes('light')
+                ? 'dark'
+                : 'light';
+            },
+            false,
+            'theme/switchMode'
+          ),
+        resetTheme: () =>
+          set(
+            () => ({
+              theme: initialTheme,
+            }),
+            false,
+            'theme/reset'
+          ),
+
+        list: [
+          {
+            id: crypto.randomUUID(),
+            title: 'Zustand는 츄~슈탄트로 발음합니다.',
           },
-          false,
-          'theme/changeLight'
-        ),
-      changeDarkTheme: () =>
-        set(
-          (state) => {
-            state.theme.currentMode = 'dark';
-          },
-          false,
-          'theme/changeDark'
-        ),
-      swtichMode: () =>
-        set(
-          (state) => {
-            const mode = state.theme.currentMode;
-            state.theme.currentMode = mode.includes('light') ? 'dark' : 'light';
-          },
-          false,
-          'theme/switchMode'
-        ),
-      resetTheme: () =>
-        set(
-          () => ({
-            theme: initialTheme,
-          }),
-          false,
-          'theme/reset'
-        ),
-    }))
+        ],
+
+        addItem: (newItemTitle) =>
+          set(
+            (state) => ({
+              list: [
+                ...state.list,
+                {
+                  id: crypto.randomUUID(),
+                  title: newItemTitle,
+                },
+              ],
+            }),
+            false,
+            'list/addItem'
+          ),
+        deleteItem: (deleteId) =>
+          set(
+            (state) => ({
+              list: state.list.filter((item) => item.id !== deleteId),
+            }),
+            false,
+            'list/removeItem'
+          ),
+      }))
+    ),
+    {
+      name: 'appStore',
+    }
   )
 );
